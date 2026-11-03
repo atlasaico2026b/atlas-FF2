@@ -1,0 +1,878 @@
+[9/11/2026 08:12] dr.Sepehr.666: MASTER PROMPT — اصلاح و ارتقای اساسی بخش‌های «Worst Case» و «Design»
+1. دستورالعمل اصلی و غیرقابل‌تفسیر
+این درخواست یک Change Request رسمی و الزامی برای اپلیکیشن فعلی است.
+تمام موارد زیر را دقیقاً و مو‌به‌مو اجرا کن.
+قوانین اجباری
+هیچ‌یک از قابلیت‌های موجود اپلیکیشن را که در این درخواست صراحتاً تغییر نکرده‌اند حذف یا خراب نکن.
+ساختار فعلی پروژه را قبل از اعمال تغییرات بررسی کن.
+ابتدا معماری، منطق محاسبات، فرم‌ها، داده‌های ذخیره‌شده و ارتباط بین بخش‌ها را بررسی کن.
+سپس تغییرات را پیاده‌سازی کن.
+تمام محاسبات باید بر اساس فرمول‌ها، جداول و استانداردهای تعریف‌شده در موتور محاسبات اپلیکیشن انجام شوند.
+هیچ مقدار مهندسی را حدس نزن و هیچ ضریب یا نرخ جدیدی را بدون وجود منبع معتبر در منطق سیستم وارد نکن.
+هرجا داده‌ای برای محاسبه ناقص است، سیستم باید همان داده را به‌صورت شفاف اعلام کند و اجازه ادامه محاسبه نهایی بدون تکمیل داده‌های ضروری را ندهد.
+اطلاعات ناقص با رنگ قرمز مشخص شوند.
+پس از تکمیل صحیح اطلاعات، وضعیت آن فیلد با رنگ سبز مشخص شود.
+در تمام مراحل امکان:
+Edit
+اصلاح
+حذف
+بازگشت
+تولید مجدد خروجی
+وجود داشته باشد.
+اطلاعات Worst Case و Design باید از نظر معماری داده‌ای به هم متصل باشند، اما دو بخش کاملاً مستقل در UI و Workflow باشند.
+Worst Case باید قبل از Design تکمیل شود.
+Design باید از Worst Case تأییدشده به‌عنوان ورودی استفاده کند.
+هیچ طراحی خودکاری نباید قبل از تعیین Worst Case معتبر اجرا شود.
+تمام خروجی‌های محاسباتی باید قابلیت:
+نمایش
+چاپ
+Export
+داشته باشند.
+
+
+⸻
+
+
+2. اصلاح عنوان بخش Roads
+عنوان فعلی:
+«جاده‌ها و رینگ‌ها»
+باید به:
+«جاده‌ها»
+تغییر پیدا کند.
+دلیل:
+رینگ آتش‌نشانی و تجهیزات اطفای حریق در بخش Design طراحی و جانمایی خواهند شد.
+بنابراین در بخش Roads فقط اطلاعات مربوط به جاده‌ها و زیرساخت مربوط به جاده نگهداری شود و هیچ بخش طراحی رینگ آتش‌نشانی در این سربرگ قرار نگیرد.
+
+
+⸻
+
+
+3. جداسازی کامل Worst Case از Design
+سربرگ فعلی Worst Case و Design باید به دو بخش مستقل تبدیل شوند.
+ساختار نهایی:
+WORST CASE
+وظیفه:
+تعیین سناریوی Worst Case و انجام کلیه محاسبات موردنیاز برای آن.
+DESIGN
+وظیفه:
+طراحی سیستم‌های اطفا و حفاظت حریق بر اساس Worst Case تأییدشده.
+
+
+⸻
+
+
+4. سربرگ WORST CASE
+در ابتدای این سربرگ یک گزینه اصلی قرار بده:
+«اسکن هوشمند نقشه و تجهیزات»
+با انتخاب این گزینه سیستم باید نقشه و اطلاعات پروژه را تحلیل کند.
+Smart Scan باید موارد زیر را شناسایی کند:
+تمام تجهیزات
+محل قرارگیری تجهیزات
+نوع تجهیزات
+شماره تجهیزات
+فاصله تجهیزات از یکدیگر
+گرید و Zone بندی
+ارتباط مکانی تجهیزات
+مخازن
+ساختمان‌ها
+باندوال‌ها
+جاده‌ها
+سایر تجهیزات موجود در نقشه
+این اطلاعات لازم نیست همگی در UI نمایش داده شوند.
+این اطلاعات باید در Backend / Data Model ذخیره شوند تا موتور Worst Case بتواند از آنها استفاده کند.
+پس از پایان Scan یک پیام واضح نمایش داده شود:
+Smart Scan Completed
+
+
+⸻
+
+
+5. اطلاعاتی که پس از Smart Scan باید استخراج شود
+سیستم باید اطلاعات موجود را با اطلاعاتی که در مراحل قبلی پروژه وارد شده‌اند ترکیب کند.
+از جمله:
+نوع مخزن
+شماره مخزن
+قطر
+ارتفاع
+نوع سقف
+ماده داخل مخزن
+حجم مخزن
+طول باندوال
+عرض باندوال
+ارتفاع باندوال
+حجم باندوال
+سطح مقطع/مساحت باندوال
+تجهیزات اطفا
+سیستم Cooling
+سیستم Foaming
+تجهیزات مرتبط
+سپس یک لیست کامل از تجهیزات و مشخصات آنها نمایش داده شود.
+
+
+⸻
+
+
+6. انتخاب روش تعیین Worst Case
+بعد از نمایش اطلاعات، سیستم باید دقیقاً دو گزینه ارائه کند:
+OPTION 1
+انتخاب هوشمند سناریوی Worst Case
+OPTION 2
+انتخاب دستی سناریوی Worst Case
+کاربر باید یکی از این دو گزینه را انتخاب کند.
+
+
+⸻
+
+
+7. حالت SMART WORST CASE
+اگر کاربر:
+انتخاب هوشمند سناریوی Worst Case
+را انتخاب کرد، سیستم باید تمام اطلاعات موجود را بررسی کند.
+Validation
+اگر اطلاعات ناقص است:
+محاسبه متوقف شود.
+سیستم دقیقاً اعلام کند چه اطلاعاتی ناقص است.
+فیلد ناقص قرمز شود.
+پس از تکمیل صحیح فیلد، سبز شود.
+
+
+⸻
+
+
+8. اطلاعات موردنیاز مخازن
+برای هر مخزن حداقل این اطلاعات باید قابل مشاهده و قابل اصلاح باشد:
+Parameter
+نام مخزن
+شماره مخزن
+قطر
+ارتفاع
+نوع سقف
+نوع ماده
+سیستم Cooling دارد؟
+سیستم Foaming دارد؟
+تعداد Foam Chamber
+مخازن همجوار قابل Cooling
+حجم Bundwall
+مساحت Bundwall
+سطح Zone بندی
+Foam Chamber
+تعداد Foam Chamber نباید صرفاً توسط کاربر وارد شود.
+سیستم باید در صورت امکان آن را:
+به‌صورت Automatic
+و بر اساس فرمول‌ها و جداول استاندارد موجود در موتور محاسبات تعیین کند.
+در کنار مقدار محاسبه‌شده، امکان Override دستی نیز وجود داشته باشد، ولی Override باید مشخصاً به‌عنوان:
+Manual Override
+[9/11/2026 08:12] dr.Sepehr.666: علامت‌گذاری شود.
+
+
+⸻
+
+
+9. مخازن همجوار
+فیلد:
+Adjacent Tanks for Cooling
+باید یک لیست قابل انتخاب باشد.
+تمام مخازن دیگر پروژه در این لیست نمایش داده شوند.
+کاربر بتواند مخازن همجوار را انتخاب کند.
+برای هر مخزن انتخاب‌شده:
+قطر
+ارتفاع
+مساحت خارجی
+درصد Cooling موردنیاز
+در محاسبات لحاظ شود.
+مساحت خارجی مخزن باید به‌صورت اتوماتیک از ابعاد واقعی مخزن محاسبه شود.
+
+
+⸻
+
+
+10. Smart Action
+پس از تکمیل تمام اطلاعات ضروری، دکمه:
+«اقدام هوشمند»
+فعال شود.
+قبل از فعال شدن دکمه، سیستم باید Validation کامل انجام دهد.
+
+
+⸻
+
+
+11. موتور انتخاب سناریوی Worst Case
+با کلیک روی:
+اقدام هوشمند
+سیستم باید تمام اطلاعات پروژه را تحلیل کند و سناریوی Worst Case را تعیین نماید.
+مثال:
+برای مخزن 101B، سناریوی Worst Case شامل غرق شدن سقف شناور و نشت مواد داخل Bundwall تشخیص داده شد.
+این فقط مثال UI است.
+سناریوی واقعی باید توسط موتور محاسبات و منطق مهندسی سیستم تعیین شود.
+
+
+⸻
+
+
+12. محاسبات Worst Case
+پس از انتخاب سناریو، سیستم باید به‌صورت خودکار محاسبه کند:
+Fire Area
+سطح حریق مخزن
+سطح حریق Bundwall
+مجموع سطوح درگیر
+سایر سطوح مرتبط با سناریو
+Foam
+Foam Application Rate
+Required Foam Flow
+Foam Discharge Duration
+Foam Quantity
+Foam Concentrate Quantity
+نوع Concentration
+3%
+6%
+Cooling
+آب موردنیاز برای Cooling مخزن اصلی
+آب موردنیاز برای Adjacent Tanks
+آب موردنیاز سایر تجهیزات درگیر
+Monitors
+تعیین کند چند دستگاه:
+Water/Foam Monitor 900 L/min
+برای تأمین دبی موردنیاز لازم است.
+مقدار موردنیاز باید از محاسبات واقعی سیستم به‌دست آید و به عدد ثابت محدود نشود.
+
+
+⸻
+
+
+13. Loss / هدررفت
+در محاسبات، مقدار هدررفت و Loss طبق روش تعریف‌شده در موتور محاسبات لحاظ شود.
+سیستم باید نشان دهد:
+Flow before loss
+Loss
+Required final flow
+Total Q Required
+
+
+⸻
+
+
+14. Fire Pump
+پس از مشخص شدن Q Required و فشار موردنیاز، سیستم باید:
+Required Flow
+Required Pressure
+Fire Pump Requirement
+Pump Type
+Pump Capacity
+Pump Pressure
+را مشخص کند.
+
+
+⸻
+
+
+15. Jockey Pump
+مشخصات Jockey Pump نیز محاسبه و نمایش داده شود.
+
+
+⸻
+
+
+16. Fire Water Storage
+سیستم باید موارد زیر را مشخص کند:
+Required Fire Water Storage
+و به‌صورت تفکیک‌شده نشان دهد:
+آب موردنیاز برای Firefighting
+آب موردنیاز Foam System
+آب Cooling
+آب Cooling مخازن همجوار
+آب سایر سیستم‌های فعال
+مدت زمان اطفا
+مدت زمان Cooling
+Total Operational Water
+Required Storage Capacity
+زمان طراحی Cooling برابر مدت تعیین‌شده در استاندارد/منطق پروژه باشد و برای سناریوی نهایی به‌صورت شفاف نمایش داده شود.
+
+
+⸻
+
+
+17. Foam Storage
+سیستم باید محاسبه کند:
+Total Foam Solution
+Foam Concentrate
+Concentrate 3%
+Concentrate 6%
+Required Foam Storage
+و مقدار نهایی را به‌صورت واضح نمایش دهد.
+
+
+⸻
+
+
+18. خروجی Worst Case
+در پایان، یک گزارش حرفه‌ای تولید شود که حداقل شامل این موارد باشد:
+WORST CASE SUMMARY
+Project
+Scenario
+Main Equipment
+Main Tank
+Adjacent Tanks
+Fire Area
+Bundwall Area
+Foam Flow
+Foam Duration
+Cooling Flow
+Adjacent Cooling Flow
+Monitor Quantity
+Total Required Flow
+Required Pressure
+Fire Pump
+Jockey Pump
+Operational Water
+Required Storage Water
+Foam Solution
+Foam Concentrate
+3% / 6%
+Design assumptions
+Applied formulas
+Standard references
+این گزارش باید:
+قابل Print
+قابل Export
+قابل Save
+قابل Edit
+قابل Regenerate
+باشد.
+
+
+⸻
+
+
+19. حالت MANUAL WORST CASE
+اگر کاربر:
+انتخاب دستی سناریوی Worst Case
+را انتخاب کرد، سیستم نباید سناریو را خودش انتخاب کند.
+ابتدا لیست تجهیزات نمایش داده شود.
+کاربر باید بتواند:
+Main Case
+را انتخاب کند.
+مثلاً:
+101B
+سپس سایر Cases درگیر را انتخاب کند.
+مثلاً:
+201C
+201D
+Bundwall
+
+
+⸻
+
+
+20. انتخاب سناریوی دستی
+پس از انتخاب Main Case، سیستم اطلاعات قبلی تجهیز را نمایش دهد:
+Diameter
+Height
+Roof Type
+Product
+Tank Type
+Bundwall
+Existing Systems
+سپس کاربر سناریوی موردنظر را انتخاب کند.
+سناریوها باید متناسب با نوع تجهیز باشند.
+برای نمونه:
+Fixed Roof Fire
+External Floating Roof Rim Seal Fire
+Internal Floating Roof Fire
+Floating Roof Fully Involved
+Floating Roof Sunk
+Rim Seal Fire
+Bundwall Spill Fire
+Tank + Bundwall
+سایر سناریوهای تعریف‌شده در موتور استاندارد
+سیستم نباید گزینه نامرتبط با نوع مخزن را نمایش دهد.
+
+
+⸻
+
+
+21. انتخاب Cooling Tanks
+بعد از تعیین Main Case، کاربر باید بتواند مخازن همجوار را برای Cooling انتخاب کند.
+برای هر مخزن:
+Diameter
+Height
+External Surface Area
+Cooling Requirement
+به‌صورت اتوماتیک محاسبه شود.
+
+
+⸻
+
+
+22. انتخاب Bundwall
+[9/11/2026 08:12] dr.Sepehr.666: کاربر باید بتواند Bundwall مربوط به سناریو را مشخص کند.
+سیستم اطلاعات:
+Length
+Width
+Height
+Area
+Volume
+را نمایش داده و در محاسبات وارد کند.
+
+
+⸻
+
+
+23. Worst Case ساختمان
+اگر Main Case یک Building باشد:
+سیستم نباید اطلاعات مخصوص مخازن را درخواست کند.
+فرم باید Dynamic باشد.
+یعنی بر اساس نوع تجهیز/Case انتخاب‌شده، فقط اطلاعات مرتبط درخواست شود.
+
+
+⸻
+
+
+24. Manual Worst Case Calculation
+پس از تکمیل اطلاعات و کلیک روی:
+«تهیه خروجی Worst Case»
+تمام محاسبات مانند حالت Smart انجام شود.
+خروجی شامل:
+Fire Area
+Bundwall Area
+Cooling
+Foam
+Foam Concentrate
+Monitors
+Hydrants
+Required Flow
+Loss
+Required Pressure
+Fire Pump
+Jockey Pump
+Fire Water Storage
+Operational Water
+Foam Storage
+سایر پارامترهای محاسباتی
+باشد.
+
+
+⸻
+
+
+25. پایان Worst Case
+پس از تأیید Worst Case، کاربر وارد بخش:
+DESIGN
+شود.
+Worst Case باید ذخیره شده و به‌عنوان ورودی Design در دسترس باشد.
+
+
+⸻
+
+
+26. سربرگ DESIGN
+سربرگ Design باید کاملاً مستقل از Worst Case باشد.
+در ابتدای این بخش فقط سه گزینه طراحی نمایش داده شود:
+1. طراحی آلفا
+2. طراحی بتا
+3. طراحی گاما
+
+
+⸻
+
+
+27. ALPHA DESIGN
+Alpha Design:
+طراحی کامل سیستم حفاظت و اطفای حریق
+باید بر اساس Worst Case تأییدشده و اطلاعات کل سایت انجام شود.
+با کلیک روی:
+تولید طراحی آلفا
+سیستم باید طراحی کامل را انجام دهد.
+
+
+⸻
+
+
+28. طراحی رینگ Fire Water
+سیستم باید محل Fire Water Storage / Fire Pump را از اطلاعات ذخیره‌شده پروژه دریافت کند.
+سپس:
+Fire Water Ring
+مسیرهای لوله
+مسیرهای اصلی
+مسیرهای فرعی
+اتصال مسیرها
+مسیرهای Loop
+را طراحی کند.
+رینگ باید در امتداد جاده‌ها جانمایی شود و مسیر لوله‌ها مطابق قواعد طراحی تعریف‌شده در سیستم باشد.
+در صورت امکان عبور مسیر در زیر عرض جاده نیز در طراحی لحاظ شود.
+هدف:
+پوشش کامل محدوده صنعتی بر اساس معیارهای طراحی و Worst Case.
+
+
+⸻
+
+
+29. تجهیزات روی Ring
+سیستم باید بر اساس محاسبات و استانداردهای تعریف‌شده جانمایی کند:
+Water/Foam Monitors
+Hydrants
+Isolation Valves
+Butterfly Valves
+Hydrant Valves
+Monitor Valves
+سایر تجهیزات ضروری شبکه
+جانمایی باید قابل اصلاح دستی باشد.
+
+
+⸻
+
+
+30. Tank Cooling
+سیستم باید سیستم Cooling مخازن را نیز طراحی کند.
+از جمله:
+Spray Ring
+Water Spray Nozzles
+Cooling Piping
+Isolation Valves
+Connections
+تعداد نازل‌ها باید از فرمول و نرخ استاندارد محاسبه شود.
+تعداد نازل نباید به‌صورت دستی و عدد ثابت تعیین شود مگر در حالت Manual Override.
+
+
+⸻
+
+
+31. Tank Foam System
+برای مخازن، سیستم Foaming نیز طراحی شود.
+شامل:
+Foam Chamber
+Foam Pourer
+Foam Piping
+Foam Valves
+Foam System Connections
+Foam Equipment
+Foam Tank / Foam Storage
+تعداد تجهیزات بر اساس فرمول‌ها و جداول استاندارد سیستم محاسبه شود.
+
+
+⸻
+
+
+32. CO2 System
+برای تجهیزاتی که در پروژه نیاز به سیستم اطفای اتوماتیک CO2 دارند، سیستم باید طراحی و جانمایی کند.
+مثلاً:
+Turbines
+Electric Motors
+سایر تجهیزات مشمول طراحی CO2
+این بخش فقط در Alpha فعال باشد.
+
+
+⸻
+
+
+33. Alpha Design Output
+خروجی کامل باید شامل:
+نقشه طراحی
+Fire Water Ring
+Pipe Routes
+Pipe Length
+Pipe Sizes
+Monitors
+Hydrants
+Valves
+Elbows
+Tees
+Cooling Nozzles
+Foam Chambers
+Foam Pourers
+Foam Piping
+Cooling Piping
+CO2 System
+تجهیزات مربوطه
+تعداد تجهیزات
+متراژ لوله‌ها به تفکیک سایز
+تعداد ولوها به تفکیک نوع
+تعداد زانوها
+تعداد سه‌راهی‌ها
+سایر اتصالات
+باشد.
+
+
+⸻
+
+
+34. BETA DESIGN
+Beta Design تقریباً مشابه Alpha است.
+اما:
+سیستم‌های اطفای اتوماتیک حذف شوند.
+یعنی در Beta:
+Automatic Fire Suppression Systems حذف شوند.
+CO2 Automatic Suppression حذف شود.
+سایر سیستم‌های Automatic حذف شوند.
+و طراحی بر اساس سیستم‌های اطفای دستی انجام شود.
+شامل:
+Fire Water Ring
+Hydrants
+Water/Foam Monitors
+Manual Firefighting Equipment
+Cooling Systems
+Foam Systems در صورت نیاز
+تجهیزات دستی مرتبط
+
+
+⸻
+
+
+35. GAMMA DESIGN
+Gamma Design ساده‌ترین سناریوی طراحی باشد.
+در Gamma فقط طراحی بر اساس:
+Fire Monitors
+و
+Hydrants
+انجام شود.
+سیستم‌های زیر در Gamma طراحی نشوند:
+Automatic Suppression
+CO2
+Automatic Tank Foam Systems
+سایر Automatic Systems
+هدف Gamma:
+ایجاد طراحی شبکه اطفای دستی مبتنی بر:
+Monitors + Hydrants
+باشد.
+
+
+⸻
+
+
+36. ساختار خروجی Design
+پس از کلیک روی:
+«اقدام به طراحی»
+سه Sheet/Tab مستقل باز شود:
+SHEET A — ALPHA
+طراحی کامل
+SHEET B — BETA
+طراحی بدون سیستم‌های اطفای اتوماتیک
+SHEET C — GAMMA
+طراحی فقط با Monitors + Hydrants
+
+
+⸻
+
+
+37. خروجی هر Sheet
+هر سه Sheet باید قابلیت کامل داشته باشند:
+View
+Edit
+Delete
+Regenerate
+Print
+Export
+Save
+[9/11/2026 08:12] dr.Sepehr.666: 
+
+⸻
+
+
+38. کنترل مهندسی
+تمام طراحی‌ها باید از یک موتور محاسبات مرکزی استفاده کنند.
+از ایجاد سه موتور محاسباتی مستقل و متناقض خودداری کن.
+ساختار پیشنهادی:
+Input Data
+↓
+Validation Engine
+↓
+Worst Case Engine
+↓
+Required Demand
+↓
+Design Engine
+↓
+Alpha / Beta / Gamma
+↓
+Engineering Output
+
+
+⸻
+
+
+39. جلوگیری از تناقض داده
+اگر اطلاعاتی در مراحل قبلی وارد شده باشد، از کاربر مجدداً همان اطلاعات را نپرس مگر اینکه:
+ناقص باشد
+ناسازگار باشد
+نیاز به Override داشته باشد
+یا کاربر بخواهد آن را اصلاح کند.
+تمام اطلاعات مشترک باید از Data Model مرکزی خوانده شوند.
+
+
+⸻
+
+
+40. قابلیت اصلاح در همه مراحل
+در تمام مراحل دکمه‌ها و قابلیت‌های زیر وجود داشته باشند:
+Edit
+Delete
+Back
+Cancel
+Regenerate
+Save
+Export
+Print
+و اصلاح یک داده باید در محاسبات وابسته نیز قابل اعمال باشد.
+
+
+⸻
+
+
+41. Audit Trail
+هر تغییر مهم مهندسی باید ثبت شود:
+مقدار قبلی
+مقدار جدید
+Manual Override یا Automatic
+زمان تغییر
+منبع تغییر
+
+
+⸻
+
+
+42. جلوگیری از نمایش محاسبات مخفی
+اطلاعات فنی موردنیاز برای Audit باید قابل مشاهده باشند.
+برای هر خروجی مهم امکان مشاهده:
+Formula
+Input
+Result
+Standard Reference
+وجود داشته باشد.
+
+
+⸻
+
+
+43. تست اجباری قبل از تحویل
+این بخش بسیار مهم است.
+قبل از اعلام تکمیل پروژه، سیستم باید یک تست کامل End-to-End انجام دهد.
+حداقل یک پروژه فرضی بساز و کل فرآیند را اجرا کن:
+تعریف Site
+تعریف Road
+تعریف Tank
+تعریف Bundwall
+تعریف Product
+تعیین Tank Dimensions
+Smart Scan
+دریافت تجهیزات
+Smart Worst Case
+Validation
+تکمیل اطلاعات ناقص
+انتخاب Worst Case
+محاسبات
+تولید Worst Case Report
+تأیید Worst Case
+ورود به Design
+تولید Alpha
+تولید Beta
+تولید Gamma
+تولید نقشه
+محاسبه Pipe Length
+Pipe Size
+Valve Count
+Hydrant Count
+Monitor Count
+Cooling Nozzle Count
+Foam Equipment
+Pump
+Jockey Pump
+Water Storage
+Foam Storage
+Export
+Print
+Edit
+Delete
+Regenerate
+
+
+⸻
+
+
+44. تست خطا
+موارد زیر نیز تست شوند:
+اطلاعات ناقص
+قطر مخزن خالی
+ارتفاع مخزن خالی
+نوع سقف نامشخص
+Product نامشخص
+Bundwall ناقص
+اطلاعات ناسازگار
+عدم وجود Fire Water Source
+عدم وجود مسیر مناسب
+انتخاب سناریوی نامرتبط
+Manual Override
+حذف تجهیز
+اصلاح تجهیز
+تغییر Worst Case بعد از Design
+
+
+⸻
+
+
+45. اصل مهم درباره Worst Case و Design
+Worst Case فقط تعیین می‌کند:
+چه چیزی باید برای بدترین سناریو اطفا/حفاظت شود و چه Demandی لازم است.
+Design تعیین می‌کند:
+چگونه آن Demand در سایت با تجهیزات، لوله‌کشی و سیستم‌های حفاظت حریق تأمین شود.
+این دو مفهوم را در UI، Data Model و Workflow با یکدیگر مخلوط نکن.
+
+
+⸻
+
+
+46. عدم تخطی از Scope
+این درخواست صرفاً برای اصلاح و ارتقای:
+Roads
+Worst Case
+Design
+محاسبات مرتبط
+خروجی‌های مرتبط
+است.
+هیچ Feature نامرتبط را بدون دستور من تغییر نده.
+اگر برای اجرای یک بخش نیاز به تغییر معماری داخلی داری، تغییر را فقط در Backend/Data Model/Logic لازم انجام بده و رفتار سایر بخش‌های اپلیکیشن را حفظ کن.
+
+
+⸻
+
+
+47. اولویت تصمیم‌گیری
+در صورت وجود تعارض بین UI فعلی و این دستور:
+این Master Prompt اولویت دارد.
+در صورت وجود تعارض بین داده‌های قدیمی و داده‌های جدید:
+داده معتبرتر و آخرین داده تأییدشده کاربر اولویت دارد.
+در صورت ناقص بودن اطلاعات:
+محاسبه نهایی انجام نشود و Missing Data اعلام شود.
+
+
+⸻
+
+
+48. Final QA
+پس از پیاده‌سازی:
+کل پروژه را Build کن.
+تمام خطاهای Runtime را برطرف کن.
+تمام خطاهای UI را برطرف کن.
+تمام خطاهای محاسباتی را برطرف کن.
+تمام Navigationها را تست کن.
+تمام Exportها را تست کن.
+تمام Printها را تست کن.
+تمام Edit/Deleteها را تست کن.
+سه Design Sheet را تست کن.
+Worst Case Smart را تست کن.
+Worst Case Manual را تست کن.
+سناریوی Building را تست کن.
+سناریوی Tank را تست کن.
+سناریوی Bundwall را تست کن.
+تا زمانی که این تست‌ها با موفقیت انجام نشده‌اند، کار را Completed اعلام نکن.
+
+
+⸻
+
+
+49. اصل نهایی
+DO NOT SIMPLIFY THIS REQUEST.
+DO NOT OMIT ANY SECTION.
+DO NOT REMOVE EXISTING FUNCTIONALITY UNLESS EXPLICITLY REQUESTED.
+DO NOT SUBSTITUTE ENGINEERING CALCULATIONS WITH PLACEHOLDER VALUES.
+DO NOT MARK THE PROJECT COMPLETE WITHOUT END-TO-END TESTING.
+DO NOT ASK ME TO MANUALLY FIX BUGS THAT YOU CAN DETECT AND FIX YOURSELF.
+ابتدا سیستم موجود را Audit کن، سپس این Change Request را پیاده‌سازی کن، سپس تست End-to-End انجام بده، خطاها را خودت برطرف کن و در نهایت نسخه اصلاح‌شده و قابل استفاده را ارائه بده.

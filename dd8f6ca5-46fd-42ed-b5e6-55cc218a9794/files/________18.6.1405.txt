@@ -1,0 +1,1978 @@
+ اصلاحات
+بخش ویژگی های تجهیز: وقتی ذخیره ی تغییرات را انتخاب می کنیم باید پنجره ی ویژگی ها بسته شود و پنجره ی ویژگی ها  باید در ٢ حالت باز شود،  یکی اینکه تجهیز را ساخته ایم و این پنجره برای ثبت اطلاعات باز میشود و دوم اینکه ابزار ادیت را انتخاب می کنیم و نماد ابزار ادیت باید تغییر کند و نماد مناسبتری جایگزین گردد.نوع سقف مخازن یا  دارا بودن سیستم  کولینگ یا فومینگ یا سیستم اطفا داخلی یا غیره را نیز بتوان مشخص نمود ولی در این بخش زونبندی را نتوان مشخص کرد.
+چکلیست جانمایی: نیازی به اطلاعات ابعادی ندارد و فقط یک چک لیست باشد. و ترتیب آنها مرتب شود مثلا ٧ و ٨ جابجا مارک میشوند.
+مهمترین نکته در سربرگ جانمایی عدم هماهنگی بین چکلیست و ابزارهای جانمایی است یعنی وقتی در حال  انجام چکلیست جانمایی مخزن آب هستیم باید سایر ادوات جانمایی غیرفعال باشند و نتوان آنها را انتخاب کرد و به همین ترتیب برای تمامی لیست پیش برود و در نهایت پس از تکمیل وارد بخش بازنگری و تایید نهایی شویم که اگر نیاز به اصلاح داشتیم اصلاح کنیم ودر صورت تایید وارد بخش طراحی جاده شویم و در این سربرگ فقط بتوان جاده ها را طراحی کرد و طراحی رینگ و سیستم های ایمنی از آن حذف شود. وپس از تایید طراحی جاده وارد  سربرگ زونبندی شویم و در این بخش باید ابزار سلکت فعال باشد که متاسفانه در حال حاضر ابزار add فعال است و با کلیک یک تجهیز ساخته میشود.و  در این بخش باید لیست تمام تجهیزات طراحی شده بجز مخازن آب، پمپهای آب و جوکی پمپها و تجهیزات اطفا حریق و رینگها و جاده  ها و باندوال ها را بتوان زونبندی کرد و  با اعمال زونبندی علامت تجهیز بصورت صحیح در کنارش قرار گیرد نه اینکه زونبندی سوله توربین را انتخاب کنیم و علامت آن در کنار منیفولد قرار بگیرد.
+سربرگ بخش ورست کیس باید قبل از سربرگ طراحی قرار گیرد و طراحی باید بر اساس ورست کیس  انجام گیرد و نباید سیستم های طراحی شده خارج از نقشه اعمال شوند و باید در جای مناسب اعمال شوند و  به محض  ورود به این بخش یک گزینه ی اسکن وجود داشته باشد که کل نقشه ی آپلود شده  و تجهیزات طراحی شده را هوشمند اسکن کند  و برای کارهای بعدی بخاطر بسپارد و  پس از اعمال طراحی بر روی نقشه باید بتوان  با انتخاب گزینه ی برگرداندن تمام طراحی اعمال شده را حذف کرد و با انجام تغیییرات و محاسبه ی مجدد بتوان دوباره طراحی کرد و وقتی طراحی دستی انتخاب میشود  گزینه ی  انجام دستی را بتوان کلیک کرد و وارد بخش طراحی رینگ و جانمایی تجهیزات ایمنی و اطفا حریق   آن بصورت دستی شد بتوان  رینگها ولوها مانیتورها و هایدرانتها و کولینگ و فومینگ و co2 اتوماتیک را طراحی کرد و مخازن فوم و co2 را جانمایی کرد و ستیر ابزارهای نامربوط غیرفعال باشند. منوها باید قابلیت شناور بودن داشته باشند که با کلیک بر روی حاشیه ی آنها بتوان آنها هاید و نمایش داد. طراحی باید بر اساس وریت کیس انجام گیرد  و بر اساس اطلاعاتی که ورست کیس بما میدهد میزان آب و فوم و رینگ و مسخصات پمپ و غیره نیز محاسبه شود و بر اساس آن طراحی انجام و محاسبات انجام و اطلاعات نمایش داده شود. ورست کیس ها نیز بر ٢ حالت محاسبه می گردد حالت اول که بصورت هوشمند صورت می پذیرد و بر اساس اطلاعات قبلی  که ذخیره شده اند مانند ابعاد مخازن، نوع سقف آنها، نوع مواد درون آنها،  تعداد مخازن مجاور،  
+حجم باندوالها،  زونبندی آن،  یا سایر تجیزات مهم،  ورست کیس انتخاب میشود و بر اساس اینکه در صورت حریق کامل  چقدر آب و فوم در زمان مشخص بر اساس اطلاعاتی که در بعد خواهم داد  و همچنین کولینگ خود و مخازن مجاور  چقدر دبی یا آب  نیاز دارد و برای تامین آن باید چه تعدادی مانیتور یا هایدرانت  فعال داشته باشیم و با درنظر گرفتن هدر رفت  و محاسبات دقیق در نهایت برای اطفا کامل آن در زمان استاندارد  چقدر آب و چقدر فوم مورد نیاز است. که بخش طراحی بر اساس این اطلاعات می آید سایز رینگ مورد نیاز و اطلاعات  تجهیزات آتش نشانی مانند پمپها و جوکی پمپ را محاسبه و اعلام و حجم مورد نیاز مخزن ذخیره آب آتش نشانی را محاسبه و اعلام می نماید و بر اساس این اطلاعات یک رینگ آب آتش نشانی دقیق در قالب نقشه طراحی و همه ی ادوات ایمنی و اطفا را به درستی برای تمامی سایت صنعتی طراحی و رسم می نماید و در بخش طراحی دستی نیز تمام محاسبات  بصورت اتوماتیک انجام میشود و فقط طراحی و رسم آن بصورت دستی انجام میشود. 
+اطلاعات مربوط به مخازن مانند نام و شماره و تگ و نوع مواد و نوع سقف و قطر و ارتفاع و غیره باید بگونه ای زیبا نمایش داده شود یعنی هاید باشد و با رسم تجهیز یک  ابرکوچک در کنار  مخزن باشد که با کلیک بر روی آن این اطلاعات شناور نمایش و عدم نمایش شود. و در بخش ویژگی ها هم یک تبک برای نمایش و عدم نمایش نام تجهیز در طراحی باشد.
+ نمام و اطلاعات تمامی تجهیزات را نیز در یک لایه جهت نمایش و عدم نمایش قرار بده.
+حجم باندوالها به  ٢ صورت محاسبه میشود یکی اینکه باندوال فقط یک مخزن را درون خود دارد که  حجم باندوال یعنی ظرفیت حجم موادی که می تواند در خود نگه دارد برابر با ١١٠ درصد حجم مخزن است و اگر چند مخزن درون یک باندوال باشد میاد ٢مورد را محاسبه و مقایسه میکند و   بر اساس اینکه هرکدام عدد بزرگتری بود آن را معیار قرار میدهد یکیش ١١٠ درصد از حجم بزرگترین مخرن و دوم ٢۵دقد از مجموع حجمهای کل مخازن داخل باندوال.
+ یک اصلاح بزرگ این است که عکسی که آپلو می کنیم شاید یایز وافعی آن میاحتی در حدود ۴٠٠ متر در ۵٠٠ متر را نشان دهد ولی در حالت نمایش مقدار ١١٠ متر در ١١٠ متر را  نشان میدهد که این اعداد باید قابل دست نویسی باشد.
+ فرمول های محاسبات برای ورست کیس و  طراحی به شرح زیر است:
+اطفاع حریق سطح مخزن توسط نازل های دستی یا فوم چمبرها صورت میگیرد که
+🚨 PRE-EXECUTION QA GATE — MANDATORY BEFORE FINAL BUILD
+بسیار مهم — این بخش باید قبل از اجرای کامل Specification انجام شود.
+قبل از اینکه پروژه را به‌عنوان نسخه نهایی توسعه‌یافته تلقی کنی، کل Specification را از ابتدا تا انتها به‌صورت یک پروژه واقعی شبیه‌سازی و اجرا کن.
+تو حق نداری مستقیماً پس از تولید کد، نسخه نهایی را Build و تحویل بدهی.
+ابتدا باید یک Full End-to-End Simulation / Dry Run / QA Run کامل انجام دهی.
+ 
+⸻
+ 
+1 — FULL SYSTEM DRY RUN
+قبل از Final Build:
+1. تمام معماری را بررسی کن.
+2. تمام Moduleها را بررسی کن.
+3. تمام Databaseها را بررسی کن.
+4. تمام Standard Parameterها را بررسی کن.
+5. تمام Calculation Engineها را بررسی کن.
+6. تمام Scenarioها را اجرا کن.
+7. تمام Formulaها را اجرا کن.
+8. Hydraulic Engine را اجرا کن.
+9. Auto Design را اجرا کن.
+10. Manual Design را اجرا کن.
+11. Worst Case Engine را اجرا کن.
+12. Equipment Placement را اجرا کن.
+13. Coverage Analysis را اجرا کن.
+14. Firewater Ring را اجرا کن.
+15. Pipe Sizing را اجرا کن.
+16. Pump Selection را اجرا کن.
+17. Jockey Pump را اجرا کن.
+18. Firewater Storage را اجرا کن.
+19. Report Generator را اجرا کن.
+20. تمام UI Flowها را اجرا کن.
+این اجرا باید End-to-End باشد.
+یعنی از:
+Project Creation
+تا:
+Final Engineering Report
+بدون توقف و بدون دخالت دستی غیرضروری انجام شود.
+ 
+⸻
+ 
+2 — CREATE A REALISTIC TEST PROJECT
+یک پروژه آزمایشی واقعی و نسبتاً پیچیده ایجاد کن که شامل موارد زیر باشد:
+• حداقل چند Tank
+• Fixed Roof Tank
+• Floating Roof Tank
+• Hydrocarbon Products
+• Flash Point
+• Dyke
+• Adjacent Tanks
+• Hydrants
+• Foam Monitors
+• Foam Chambers
+• Cooling System
+• Water Nozzles
+• Firewater Ring
+• Pump
+• Standby Pump
+• Jockey Pump
+• Firewater Storage
+Test Project باید به اندازه‌ای پیچیده باشد که تمام Engineها را درگیر کند.
+ 
+⸻
+ 
+3 — EXECUTE ALL FIRE SCENARIOS
+تمام سناریوهای زیر را واقعاً اجرا کن:
+Scenario 1
+Tank Fire
+Scenario 2
+Dyke Fire
+Scenario 3
+Tank + Dyke Fire
+Scenario 4
+Adjacent Tank Exposure
+Scenario 5
+Multiple Tank / Combined Scenario
+Scenario 6
+User Defined Worst Case
+برای هر سناریو:
+• Fire Area
+• Foam Demand
+• Cooling Demand
+• Adjacent Cooling
+• Monitor Demand
+• Hydrant Demand
+• Nozzle Demand
+• Peak Flow
+• Total Water Volume
+• Duration
+• Equipment Requirement
+• Hydraulic Requirement
+محاسبه شود.
+ 
+⸻
+ 
+4 — EXECUTE COMPLETE CALCULATION CHAIN
+برای هر Scenario این زنجیره را اجرا کن:
+INPUT
+↓
+GEOMETRY
+↓
+FIRE AREA
+↓
+FOAM
+↓
+COOLING
+↓
+ADJACENT COOLING
+↓
+HYDRANTS
+↓
+MONITORS
+↓
+NOZZLES
+↓
+TOTAL DEMAND
+↓
+TIME-BASED DEMAND
+↓
+WORST CASE
+↓
+PIPE NETWORK
+↓
+HYDRAULICS
+↓
+PRESSURE
+↓
+FLOW
+↓
+PIPE SIZE
+↓
+PUMP
+↓
+JOCKEY PUMP
+↓
+STORAGE
+↓
+PLACEMENT
+↓
+COVERAGE
+↓
+PASS/FAIL
+↓
+FINAL REPORT
+هیچ مرحله‌ای نباید Skip شود.
+ 
+⸻
+ 
+5 — TEST AUTO DESIGN
+حالت:
+AUTO DESIGN
+را از صفر اجرا کن.
+بررسی کن که سیستم بتواند بدون دخالت دستی:
+• Worst Case را پیدا کند.
+• Fire Area را تعیین کند.
+• Foam Requirement را تعیین کند.
+• Cooling Requirement را تعیین کند.
+• Monitor Quantity را تعیین کند.
+• Hydrant Quantity را تعیین کند.
+• Foam Chamber Quantity را تعیین کند.
+• Pipe Diameter را پیشنهاد دهد.
+• Firewater Ring را ایجاد کند.
+• Hydraulic Calculation را انجام دهد.
+• Pump را انتخاب کند.
+• Jockey Pump را تعیین کند.
+• Firewater Storage را تعیین کند.
+• Equipment Placement را انجام دهد.
+• Coverage را بررسی کند.
+• Report تولید کند.
+ 
+⸻
+ 
+6 — TEST MANUAL DESIGN
+سپس همان پروژه را در:
+MANUAL DESIGN
+اجرا کن.
+عمداً چند پارامتر را تغییر بده:
+• Monitor Flow
+• Monitor Quantity
+• Hydrant Quantity
+• Foam Rate
+• Cooling Rate
+• Cooling Percentage
+• Pipe Diameter
+• Pump Flow
+• Pump Pressure
+• Firewater Storage
+• Worst Case
+بعد بررسی کن که تمام محاسبات وابسته به‌صورت خودکار Recalculate شوند.
+ 
+⸻
+ 
+7 — TEST MANUAL OVERRIDE
+چند مقدار استاندارد را Override کن.
+سیستم باید نشان دهد:
+MANUAL OVERRIDE ACTIVE
+و باید:
+• Original Value
+• New Value
+• Source
+• Reason
+• Timestamp
+را ثبت کند.
+ 
+⸻
+ 
+8 — TEST INVALID INPUT
+عمداً ورودی‌های نامعتبر وارد کن:
+• Diameter = 0
+• Height = 0
+• Negative Flow
+• Negative Area
+• Negative Duration
+• Invalid Flash Point
+• Invalid Tank Type
+• Missing Product
+• Missing Standard
+• Invalid Coordinates
+[9/11/2026 03:44] dr.Sepehr.666: • Zero Equipment
+بررسی کن که سیستم Crash نکند.
+باید پیام مناسب نمایش دهد.
+ 
+⸻
+ 
+9 — TEST STANDARD CONFLICT
+عمداً دو Standard یا Design Basis متفاوت برای یک Parameter ایجاد کن.
+سیستم نباید یکی را مخفیانه انتخاب کند.
+باید نمایش دهد:
+STANDARD CONFLICT
+و از Engineer بخواهد Design Basis را انتخاب کند.
+ 
+⸻
+ 
+10 — TEST MISSING DATA
+یک Parameter ضروری را حذف کن.
+سیستم نباید مقدار فرضی بسازد.
+باید:
+DATA REQUIRED
+نمایش دهد.
+ 
+⸻
+ 
+11 — TEST HYDRAULICS
+Hydraulic Network را کامل اجرا کن.
+کنترل کن:
+• Flow
+• Velocity
+• Pressure
+• Friction Loss
+• Minor Loss
+• Elevation Loss
+• Residual Pressure
+• TDH
+• Pump Head
+• Worst Node
+هیچ مقدار Hydraulic نباید NaN، Null، Infinity یا غیرواقعی باشد.
+ 
+⸻
+ 
+12 — TEST GRAPHICAL DESIGN
+نقشه را تست کن:
+• Move Tank
+• Move Monitor
+• Move Hydrant
+• Move Pipe
+• Add Equipment
+• Delete Equipment
+• Rotate Equipment
+• Change Coordinates
+• Change Pipe Diameter
+بعد از هر تغییر:
+LIVE RECALCULATION
+باید انجام شود.
+ 
+⸻
+ 
+13 — TEST COVERAGE
+بررسی کن:
+• Monitor Coverage
+• Hydrant Coverage
+• Cooling Coverage
+• Foam Coverage
+• Blind Spots
+اگر Coverage کافی نیست:
+COVERAGE FAILURE
+نمایش داده شود.
+ 
+⸻
+ 
+14 — TEST REPORT
+در انتهای Simulation:
+Final Engineering Report تولید کن.
+Report باید شامل:
+• Design Basis
+• Standards
+• Inputs
+• Calculations
+• Scenarios
+• Worst Case
+• Foam
+• Cooling
+• Dyke
+• Hydrant
+• Monitor
+• Hydraulic
+• Pump
+• Jockey Pump
+• Firewater Storage
+• Equipment Schedule
+• Layout
+• Coverage
+• PASS/FAIL
+• Warnings
+• Traceability
+• Audit Trail
+باشد.
+ 
+⸻
+ 
+15 — BUG HUNTING
+پس از اولین اجرای کامل:
+DO NOT STOP.
+کل سیستم را برای Bug بررسی کن.
+حداقل این موارد را بررسی کن:
+• Calculation Bugs
+• Formula Bugs
+• Unit Conversion Bugs
+• Geometry Bugs
+• Scenario Bugs
+• Worst Case Bugs
+• Hydraulic Bugs
+• UI Bugs
+• Database Bugs
+• Placement Bugs
+• Coverage Bugs
+• Report Bugs
+• State Management Bugs
+• Data Persistence Bugs
+• Export Bugs
+• Build Bugs
+ 
+⸻
+ 
+16 — AUTOMATIC BUG FIX LOOP
+اگر حتی یک Bug پیدا شد:
+FIND BUG
+↓
+IDENTIFY ROOT CAUSE
+↓
+FIX BUG
+↓
+RE-RUN FAILED TEST
+↓
+RUN RELATED TESTS
+↓
+RUN FULL REGRESSION TEST
+این Loop را تا زمانی ادامه بده که سیستم بدون خطای Critical اجرا شود.
+ 
+⸻
+ 
+17 — REGRESSION TEST
+بعد از هر Bug Fix:
+Full Regression Test
+را اجرا کن.
+اطمینان حاصل کن که Fix یک بخش باعث خراب شدن بخش دیگری نشده باشد.
+ 
+⸻
+ 
+18 — FINAL QUALITY GATE
+قبل از Build نهایی، تمام موارد زیر باید PASS باشند:
+[ ] Architecture
+[ ] Database
+[ ] Standards Engine
+[ ] Geometry Engine
+[ ] Dyke Engine
+[ ] Foam Engine
+[ ] Cooling Engine
+[ ] Scenario Engine
+[ ] Demand Engine
+[ ] Worst Case Engine
+[ ] Hydraulic Engine
+[ ] Pipe Sizing
+[ ] Pump Engine
+[ ] Jockey Pump
+[ ] Firewater Storage
+[ ] Auto Design
+[ ] Manual Design
+[ ] Manual Override
+[ ] Map
+[ ] Equipment Placement
+[ ] Coverage
+[ ] Report
+[ ] Audit Trail
+[ ] Unit Tests
+[ ] Integration Tests
+[ ] End-to-End Tests
+[ ] Regression Tests
+[ ] Build Tests
+ 
+⸻
+ 
+19 — FINAL BUILD GATE
+فقط در صورتی اجازه Build نهایی داری که:
+1. Full Simulation با موفقیت اجرا شده باشد.
+2. تمام Critical Bugها رفع شده باشند.
+3. Regression Test موفق باشد.
+4. Calculation Engineها بدون خطای Critical باشند.
+5. Hydraulic Engine بدون خطای Critical باشد.
+6. Auto Design موفق باشد.
+7. Manual Design موفق باشد.
+8. Report تولید شود.
+9. UI بدون خطای Critical باشد.
+10. Build Test موفق باشد.
+اگر هرکدام Fail شد:
+BUILD FINAL = BLOCKED
+و ابتدا باید مشکل رفع شود.
+ 
+⸻
+ 
+20 — BUILD ALL PLATFORMS
+پس از عبور از Final Quality Gate، نسخه‌های زیر را Build کن:
+WEB
+نسخه Web Production-ready
+WINDOWS
+نسخه Windows Installer / Executable
+ANDROID
+نسخه Android APK / مناسب‌ترین خروجی نصب
+IOS
+در صورت امکان فنی و محدودیت‌های محیط Build، نسخه iOS نیز تولید شود.
+اگر ساخت iOS واقعاً امکان‌پذیر نیست، دلیل فنی دقیق اعلام شود و ادعا نشود که ساخته شده است.
+ 
+⸻
+ 
+21 — FINAL INSTALLATION TEST
+فقط Build کردن کافی نیست.
+هر نسخه را بعد از Build تست کن.
+Web
+• Launch
+• Project Creation
+• Calculation
+• Map
+• Report
+Windows
+• Install
+• Launch
+• Calculation
+• Save/Load
+• Map
+• Report
+Android
+• Install
+• Launch
+• Input
+• Calculation
+• Map
+• Report
+iOS
+در صورت Build شدن:
+• Install/Test
+• Launch
+• Calculation
+• Map
+• Report
+ 
+⸻
+ 
+22 — FINAL DOWNLOAD LINKS
+پس از موفقیت کامل:
+[9/11/2026 03:44] dr.Sepehr.666: برای هر Build یک Download Link واقعی و قابل استفاده ارائه کن.
+حداقل:
+WEB
+DOWNLOAD / ACCESS LINK
+
+WINDOWS
+DOWNLOAD LINK
+
+ANDROID
+DOWNLOAD LINK
+
+IOS
+DOWNLOAD LINK
+قبل از ارائه Link:
+1. وجود فایل را بررسی کن.
+2. Integrity فایل را بررسی کن.
+3. Link را تست کن.
+4. مطمئن شو فایل واقعاً قابل دریافت است.
+5. مطمئن شو فایل خراب یا ناقص نیست.
+هرگز لینک جعلی، Placeholder یا لینک تست‌نشده ارائه نکن.
+اگر یک Platform واقعاً قابل Build یا Host نیست، صریحاً اعلام کن.
+ 
+⸻
+ 
+23 — SOURCE CODE DELIVERY
+علاوه بر فایل‌های Build، کل Source Code پروژه را نیز تحویل بده.
+Source Code باید به شکل:
+ONE LARGE MARKDOWN FILE
+ارائه شود.
+نام پیشنهادی:
+ATLAS_FIRE_PROTECTION_SOURCE_CODE.md
+این فایل باید شامل تمام Source Code پروژه باشد.
+ساختار:
+# PROJECT
+# ARCHITECTURE
+# FILE TREE
+
+# FILE: path/to/file1
+```language
+FULL CONTENT
+FILE: path/to/file2
+FULL CONTENT
+…
+### بسیار مهم:
+
+هیچ فایل Source مهمی حذف نشود.
+
+از عبارت‌هایی مانند:
+
+```text
+...
+same as above
+omitted
+etc.
+placeholder
+استفاده نکن.
+تمام کد واقعی باید داخل فایل Markdown قرار گیرد.
+ 
+⸻
+ 
+24 — SOURCE CODE INTEGRITY
+قبل از تحویل Source Code:
+• بررسی کن تمام فایل‌ها وجود دارند.
+• Dependencies مشخص باشند.
+• Build Configuration موجود باشد.
+• Environment Configuration مشخص باشد.
+• Database Schema موجود باشد.
+• Standard Database Schema موجود باشد.
+• Test Files موجود باشند.
+• Build Instructions موجود باشند.
+Source Code Markdown باید به اندازه‌ای کامل باشد که یک Developer بتواند از روی آن پروژه را بازسازی کند.
+ 
+⸻
+ 
+25 — FINAL DELIVERY PACKAGE
+در پایان یک Package کامل ایجاد کن:
+ATLAS_FIRE_PROTECTION/
+│
+├── SOURCE/
+│   └── ATLAS_FIRE_PROTECTION_SOURCE_CODE.md
+│
+├── WEB/
+│
+├── WINDOWS/
+│
+├── ANDROID/
+│
+├── IOS/
+│
+├── TEST_REPORT/
+│
+├── ENGINEERING_REPORT/
+│
+└── README.md
+ 
+⸻
+ 
+26 — FINAL QA REPORT
+در پایان یک Final QA Report ارائه کن که دقیقاً مشخص کند:
+PROJECT
+VERSION
+
+SIMULATION
+PASS / FAIL
+
+UNIT TESTS
+PASS / FAIL
+
+INTEGRATION TESTS
+PASS / FAIL
+
+REGRESSION TESTS
+PASS / FAIL
+
+HYDRAULIC TEST
+PASS / FAIL
+
+AUTO DESIGN
+PASS / FAIL
+
+MANUAL DESIGN
+PASS / FAIL
+
+MAP
+PASS / FAIL
+
+COVERAGE
+PASS / FAIL
+
+REPORT
+PASS / FAIL
+
+WINDOWS BUILD
+PASS / FAIL
+
+ANDROID BUILD
+PASS / FAIL
+
+WEB BUILD
+PASS / FAIL
+
+IOS BUILD
+PASS / FAIL / NOT AVAILABLE
+
+CRITICAL BUGS
+0 / NUMBER
+
+KNOWN LIMITATIONS
+LIST
+
+DATA REQUIRED
+LIST
+
+STANDARD CONFLICTS
+LIST
+ 
+⸻
+ 
+27 — ABSOLUTE FINAL RULE
+DO NOT CLAIM THE PROJECT IS COMPLETE UNTIL YOU HAVE ACTUALLY RUN IT END-TO-END.
+ترتیب اجباری:
+BUILD
+↓
+RUN
+↓
+TEST
+↓
+FIND BUGS
+↓
+FIX BUGS
+↓
+RE-RUN
+↓
+REGRESSION TEST
+↓
+FINAL QA
+↓
+BUILD RELEASE
+↓
+INSTALL TEST
+↓
+VERIFY DOWNLOAD
+↓
+PACKAGE SOURCE CODE
+↓
+DELIVER
+هدف:
+A TESTED AND ACTUALLY RUNNING APPLICATION — NOT JUST GENERATED SOURCE CODE.
+اگر هر مرحله‌ای امکان انجام واقعی ندارد، آن را صادقانه گزارش کن و هرگز نتیجه یا لینک ساختگی ارائه نده.
+END OF PRE-EXECUTION QA GATE
+اکنون پس از اجرای کامل این QA Gate و عبور موفق از آن، MASTER SPECIFICATION اصلی پروژه را اجرا کن.
+[9/11/2026 03:45] dr.Sepehr.666: MASTER PROMPT
+AI-BASED INDUSTRIAL FIRE PROTECTION ENGINEERING DESIGN & CALCULATION SYSTEM
+تو یک Senior Fire Protection Engineer + Hydraulic Engineer + Industrial Fire Safety Engineer + Software Architect + QA Engineer هستی.
+وظیفه تو ساخت یک سامانه مهندسی واقعی طراحی، محاسبه، تحلیل، سایزینگ، جانمایی و کنترل سیستم‌های حفاظت حریق تأسیسات صنعتی و مخازن هیدروکربنی است.
+این پروژه صرفاً یک Calculator نیست.
+سامانه باید مانند یک Fire Protection Engineering Design Engine عمل کند؛ یعنی از دریافت اطلاعات اولیه تا تولید طراحی نهایی، محاسبات، نقشه، تجهیزات، هیدرولیک، پمپ، ذخیره آب، سناریوی بدترین حالت، کنترل استانداردها و گزارش مهندسی را انجام دهد.
+ 
+⸻
+ 
+1 — DESIGN PHILOSOPHY
+سیستم باید بر اساس این اصل طراحی شود:
+INPUT → DESIGN BASIS → SCENARIO GENERATION → FIRE AREA → DEMAND CALCULATION → EQUIPMENT SIZING → HYDRAULIC ANALYSIS → WORST CASE → AUTO DESIGN → MANUAL OVERRIDE → VALIDATION → REPORT
+هیچ عدد استانداردی نباید بدون Source وارد موتور محاسبات شود.
+تمام پارامترهای استانداردی باید از یک Standard Database خوانده شوند.
+اگر برای یک پارامتر Source معتبر وجود ندارد:
+DATA REQUIRED
+نمایش داده شود و سیستم حق حدس زدن نداشته باشد.
+ 
+⸻
+ 
+2 — STANDARDS & DESIGN BASIS
+سامانه باید قابلیت مدیریت و مقایسه منابع زیر را داشته باشد:
+NFPA 11
+NFPA 20
+NFPA 24
+NFPA 30
+NFPA 13 در صورت کاربرد
+NFPA 15 در صورت کاربرد
+NFPA 16 در صورت کاربرد/ارجاع پروژه
+NFPA 22 در صورت کاربرد
+NFPA 72 در صورت کاربرد
+IPS-E-SF-140
+IPS-E-SF-200
+IPS-E-SF-220
+IPS-M-SF-142
+IPS-E-SF-120
+IPS-E-SF-260
+سایر استانداردهای پروژه
+Project Specification
+Engineering Design Basis
+Company Standard
+User Defined Rule
+برای هر پارامتر ذخیره شود:
+Standard
+Edition
+Section
+Table
+Scenario
+Equipment Type
+Tank Type
+Product
+Flash Point Range
+Parameter
+Value
+Unit
+Source Type
+Project Value
+User Override
+Priority
+Notes
+در صورت وجود اختلاف بین استانداردها:
+STANDARD CONFLICT
+نمایش داده شود و کاربر بتواند Design Basis را انتخاب کند.
+ 
+⸻
+ 
+3 — USER INPUT
+سامانه باید اطلاعات زیر را دریافت کند.
+Tank Data
+Tank ID
+Tank Type
+Diameter
+Height
+Shell Height
+Roof Type
+Fixed Roof
+External Floating Roof
+Internal Floating Roof
+Floating Roof Sunk
+Cone Roof
+Other
+Product
+Flash Point
+Tank Volume
+Tank Coordinates
+Tank Elevation
+Products
+حداقل محصولات زیر:
+Gasoline
+Super Gasoline
+Naphtha
+Kerosene
+Gas Oil
+Diesel
+Fuel Oil
+Crude Oil
+Heavy Crude
+Light Crude
+Sour Crude
+Contaminated Product
+User Defined Product
+Flash Point باید هم به‌صورت خودکار از Product Database تعیین شود و هم توسط Engineer قابل Override باشد.
+مثلاً گروه‌بندی اولیه:
+Flash Point < 38°C
+و
+Flash Point ≥ 38°C
+اما مقدار واقعی واردشده توسط کاربر همیشه قابلیت Override داشته باشد.
+ 
+⸻
+ 
+4 — TANK GEOMETRY ENGINE
+سیستم باید به‌صورت خودکار محاسبه کند:
+Tank Cross Section
+A = πD² / 4
+Tank Circumference
+C = πD
+Tank External Shell Area
+A_shell = πDH
+Tank Roof Area
+A_roof = πD² / 4
+Tank Total External Surface
+بر اساس Tank Type محاسبه شود.
+Tank Volume
+V = πD²H / 4
+تمام واحدها قابل انتخاب باشند:
+m
+mm
+ft
+inch
+و سیستم Unit Conversion داخلی داشته باشد.
+ 
+⸻
+ 
+5 — DYKE / BUND ENGINE
+کاربر بتواند وارد کند:
+Dyke Length
+Dyke Width
+Dyke Height
+Dyke Area
+Dyke Volume
+Number of Tanks
+Tank Footprints
+Adjacent Tank Footprints
+Freeboard
+Rainfall Allowance
+Project Requirement
+سامانه باید حجم مؤثر دایک را محاسبه کند.
+اگر دایک مستطیلی باشد:
+V_dyke,gross = L × W × H
+سپس حجم اشغال‌شده توسط مخازن داخل ارتفاع دایک از حجم gross کسر شود.
+برای هر Tank:
+V_displacement = Tank Cross Section × submerged tank height
+یعنی:
+V_displacement = (πD²/4) × H_submerged
+سپس:
+V_effective = V_dyke,gross − ΣV_displacement − Other_Displacement
+سیستم باید امکان اعمال Freeboard، Rainfall و سایر Project Requirements را داشته باشد.
+IMPORTANT
+سیستم نباید به‌صورت پیش‌فرض قانون «25 درصد مجموع حجم مخازن» را به NFPA نسبت دهد.
+قواعد مربوط به:
+Largest Tank
+110%
+25% Total Tank Volume
+Other Local/Project Rules
+باید به‌عنوان Design Basis / Standard Rule قابل انتخاب باشند.
+ 
+⸻
+ 
+6 — FIRE SCENARIO ENGINE
+سیستم باید به‌صورت خودکار سناریوهای مختلف را تولید کند.
+حداقل:
+Scenario A
+Tank Fire
+Scenario B
+Dyke Fire
+Scenario C
+Tank + Dyke Fire
+Scenario D
+Adjacent Tank Exposure
+Scenario E
+Multiple Tank Fire
+Scenario F
+User Defined Worst Case
+ 
+⸻
+[9/11/2026 03:45] dr.Sepehr.666: 7 — TANK FIRE
+در Tank Fire:
+Fire Area بر اساس Tank Type تعیین شود.
+برای Fixed Roof Tank:
+Tank Surface
+Foam Application Area
+Cooling Area
+به‌صورت جداگانه محاسبه شود.
+برای Floating Roof:
+Full Surface Fire
+Rim Seal Fire
+Roof Sunk Fire
+به‌صورت جداگانه پشتیبانی شود.
+ 
+⸻
+ 
+8 — DYKE FIRE
+در Dyke Fire:
+Fire Area نباید برابر حجم مخزن باشد.
+Fire Area باید بر اساس سطح مؤثر Spill Fire محاسبه شود.
+به‌صورت پایه:
+A_spill = A_dyke − Tank_Footprints − Other_Displacement
+اما اگر Standard یا Project Rule روش دیگری تعیین کرده باشد، همان Rule اعمال شود.
+سیستم باید نشان دهد:
+Gross Dyke Area
+Tank Footprint
+Other Occupied Area
+Effective Spill Area
+Applied Rule
+Final Fire Area
+ 
+⸻
+ 
+9 — TANK + DYKE FIRE
+در این سناریو:
+Tank Fire Area
+Dyke Fire Area
+Tank Cooling
+Adjacent Tank Cooling
+Hydrant Demand
+Monitor Demand
+Other Required Systems
+بر اساس Simultaneity Matrix محاسبه شوند.
+سیستم نباید همه Demandها را کورکورانه با هم جمع کند.
+باید مشخص کند چه سیستم‌هایی طبق Design Basis همزمان کار می‌کنند.
+ 
+⸻
+ 
+10 — FOAM CALCULATION ENGINE
+برای Foam Application:
+Q_foam = A_fire × Application_Rate
+Application Rate باید از Standard Database خوانده شود.
+در صورت Design Basis مشخص، مقدار پیش‌فرض می‌تواند:
+6.5 L/min/m²
+باشد، اما نباید hard-coded شود.
+کاربر باید بتواند آن را Override کند.
+ 
+⸻
+ 
+11 — FOAM DISCHARGE TIME
+سیستم باید زمان تخلیه Foam را از Standard Database تعیین کند.
+حداقل پشتیبانی:
+Flash Point 38–60°C
+50 minutes
+Flash Point <38°C
+65 minutes
+Crude Oil
+65 minutes
+این مقادیر باید Source Tagged باشند و قابلیت تغییر توسط Standard/Project Rule داشته باشند.
+ 
+⸻
+ 
+12 — FOAM SOLUTION
+محاسبه:
+V_solution = Q_foam × T
+که:
+T = discharge time in minutes
+سپس:
+V_concentrate = V_solution × Concentration / 100
+و:
+V_water = V_solution − V_concentrate
+نمایش:
+Foam Solution Flow
+Foam Solution Volume
+Foam Concentrate %
+Foam Concentrate Volume
+Water Volume
+Discharge Time
+ 
+⸻
+ 
+13 — FOAM CHAMBER ENGINE
+تعداد Foam Chamber:
+N_chamber = CEILING(Q_required / Q_chamber)
+Q_chamber باید از Equipment Database خوانده شود.
+برای هر Chamber:
+Manufacturer
+Model
+Capacity
+Flow
+Minimum Pressure
+Maximum Pressure
+Foam Type
+Standard
+Certification
+ذخیره شود.
+ 
+⸻
+ 
+14 — FOAM MONITOR ENGINE
+Monitor Flow:
+450 L/min
+900 L/min
+User Defined
+اولویت طراحی:
+900 L/min
+تعداد:
+N_monitor = CEILING(Q_required / Q_monitor)
+سیستم باید امکان انتخاب:
+450
+900
+Custom
+را داشته باشد.
+ 
+⸻
+ 
+15 — FOAM NOZZLE ENGINE
+Foam Nozzle نیز پشتیبانی شود.
+پارامترها:
+Flow
+Pressure
+Throw
+Application Area
+Type
+Manufacturer
+Model
+ 
+⸻
+ 
+16 — WATER COOLING ENGINE
+Cooling کاملاً از Foam جدا باشد.
+کاربر بتواند انتخاب کند:
+100% Tank Surface
+Standard Percentage
+Specified Height
+User Defined Percentage
+User Defined Area
+مثلاً:
+A_cooling = A_wall × Cooling_Percentage / 100
+سپس:
+Q_cooling = A_cooling × Cooling_Rate
+Cooling Rate باید از Standard Database خوانده شود.
+ 
+⸻
+ 
+17 — FOUR-HOUR COOLING
+سیستم باید Cooling Duration را پشتیبانی کند.
+برای 4 ساعت:
+T = 240 minutes
+V_cooling = Q_cooling × 240
+نمایش:
+Cooling Area
+Cooling Rate
+Cooling Flow
+Cooling Duration
+Cooling Water Volume
+ 
+⸻
+ 
+18 — ADJACENT TANK COOLING
+برای هر Tank مجاور یک Calculation مستقل ایجاد شود.
+ورودی:
+Tank ID
+Diameter
+Height
+Distance
+Product
+Tank Type
+Exposure
+Exposed Surface
+Cooling Percentage
+Cooling Rate
+Cooling Duration
+خروجی:
+Exposed Area
+Cooling Area
+Cooling Flow
+Cooling Volume
+Required Equipment
+سیستم باید برای هر Tank مجاور به‌صورت جداگانه محاسبه کند.
+ 
+⸻
+ 
+19 — WATER FOG / JET NOZZLES
+سیستم باید Nozzleهای آب را پشتیبانی کند.
+Flow Range:
+50–500 L/min
+برای هر Nozzle:
+Q_total = N × Q_nozzle
+اطلاعات:
+Nozzle Type
+Flow
+Pressure
+Pattern
+Throw
+Coverage
+Quantity
+ 
+⸻
+ 
+20 — HYDRANT ENGINE
+Hydrant می‌تواند:
+Single
+Twin
+باشد.
+برای Twin Hydrant:
+Q_hydrant = Number_of_Simultaneous_Outlets × Flow_per_Outlet
+کاربر بتواند تعیین کند:
+Hydrant Flow
+Number of Hydrants
+Number of Simultaneous Hydrants
+Number of Outlets
+Outlet Diameter
+مثلاً:
+2.5 inch outlet
+ 
+⸻
+ 
+21 — GLOBAL WATER DEMAND ENGINE
+Demandها باید مستقل محاسبه شوند:
+Q_foam
+Q_cooling
+Q_adjacent_cooling
+Q_monitor
+Q_hydrant
+Q_waterfog
+Q_other
+سپس بر اساس Scenario Simultaneity:
+Q_total = Σ Q_simultaneous
+[9/11/2026 03:45] dr.Sepehr.666: سیستم باید دقیقاً نشان دهد چه Demandهایی در Q_total لحاظ شده‌اند.
+ 
+⸻
+ 
+22 — TIME-BASED DEMAND ENGINE
+سیستم باید Demand را بر اساس Time Segment محاسبه کند.
+مثال:
+0–50 min
+Foam + Cooling + Hydrant
+50–65 min
+Cooling + Hydrant
+65–240 min
+Cooling
+این ساختار باید Dynamic باشد.
+ 
+⸻
+ 
+23 — WORST CASE ENGINE
+سیستم باید تمام سناریوها را محاسبه کند.
+برای هر Scenario:
+Peak Flow
+Total Volume
+Duration
+Hydraulic Requirement
+Equipment Requirement
+سپس:
+Worst Peak Flow
+بیشترین Q
+و جداگانه:
+Worst Total Volume
+بیشترین V
+محاسبه شود.
+این دو الزاماً یکی نیستند.
+کاربر باید بتواند Worst Case را Manual انتخاب کند.
+سیستم نیز باید انتخاب کاربر را Verification کند.
+اگر سناریوی دیگری Demand بیشتری دارد:
+WARNING: SELECTED WORST CASE IS NOT THE MAXIMUM DEMAND CASE
+ 
+⸻
+ 
+24 — AUTO DESIGN
+در حالت AUTO DESIGN سیستم باید بتواند به‌صورت خودکار تعیین کند:
+Worst Case
+Foam Quantity
+Foam Chambers
+Foam Monitors
+Cooling Demand
+Adjacent Cooling
+Hydrants
+Monitors
+Nozzles
+Firewater Ring
+Pipe Diameter
+Pipe Routing
+Valves
+Tees
+Elbows
+Fire Pumps
+Standby Pump
+Jockey Pump
+Firewater Tank
+Required Pressure
+Required Flow
+Required Volume
+Equipment Placement
+ 
+⸻
+ 
+25 — MANUAL DESIGN
+در Manual Design کاربر بتواند Override کند:
+Worst Case
+Foam Rate
+Foam Duration
+Foam Concentration
+Cooling Rate
+Cooling %
+Monitor Type
+Monitor Flow
+Monitor Quantity
+Hydrant Quantity
+Hydrant Flow
+Foam Chamber Quantity
+Nozzle Quantity
+Pipe Diameter
+Pipe Route
+Pump Flow
+Pump Pressure
+Jockey Pump
+Firewater Tank
+Simultaneous Demand
+بعد از هر تغییر:
+LIVE RECALCULATION
+انجام شود.
+ 
+⸻
+ 
+26 — FIREWATER RING
+سامانه باید Firewater Ring را طراحی کند.
+Ring باید تا حد امکان:
+Closed Loop
+باشد.
+اجزای شبکه:
+Main Ring
+Branch
+Node
+Valve
+Tee
+Elbow
+Hydrant
+Monitor
+Foam System
+Cooling System
+Pump
+Tank
+ 
+⸻
+ 
+27 — AUTO PIPE ROUTING
+سیستم باید مسیر Ring را به‌صورت خودکار طراحی کند.
+معیارها:
+Tank Coverage
+Equipment Accessibility
+Shortest Practical Route
+Hydraulic Efficiency
+Obstructions
+Roads
+Buildings
+Maintenance Access
+Safety Distance
+Redundancy
+کاربر بتواند مسیر را بعداً Drag/Edit کند.
+ 
+⸻
+ 
+28 — PIPE SIZING ENGINE
+سیستم باید Pipe Size را Auto Size کند.
+Pipe Database:
+DN
+Inch
+Internal Diameter
+Material
+Roughness
+Pressure Rating
+Standard
+مثلاً:
+DN10 / 10 inch
+قابل انتخاب باشد.
+اما سیستم نباید قطر DN10 را به‌صورت همیشگی فرض کند.
+باید بر اساس Hydraulic Calculation سایز بهینه را پیشنهاد دهد.
+ 
+⸻
+ 
+29 — HYDRAULIC ENGINE
+شبکه به شکل Graph Model ساخته شود.
+Nodes
+Pump
+Tank
+Ring Junction
+Hydrant
+Monitor
+Foam Chamber
+Cooling System
+Nozzle
+Edges
+Pipe
+Valve
+Tee
+Elbow
+Reducer
+Branch
+محاسبه شود:
+Flow
+Velocity
+Pressure
+Friction Loss
+Minor Loss
+Elevation Loss
+Residual Pressure
+TDH
+Pump Head
+Worst Node
+ 
+⸻
+ 
+30 — PIPE LOSSES
+سیستم باید قابلیت استفاده از روش‌های مهندسی مناسب را داشته باشد:
+Hazen-Williams
+Darcy-Weisbach
+روش انتخابی باید در Design Basis ثبت شود.
+Minor Loss:
+45° Elbow
+90° Elbow
+Tee
+Valve
+Reducer
+Other Fittings
+قابل تعریف باشد.
+ 
+⸻
+ 
+31 — ELEVATION
+Pressure loss/gain ناشی از Elevation باید محاسبه شود.
+برای هر Equipment:
+Ground Elevation
+Equipment Elevation
+Pump Elevation
+Tank Elevation
+ثبت شود.
+در پروژه‌های نمونه می‌تواند ارتفاع تجهیز مثلاً 31 m باشد، ولی این مقدار نباید hard-coded باشد.
+ 
+⸻
+ 
+32 — MONITOR PLACEMENT
+Monitorها باید به‌صورت خودکار جانمایی شوند.
+معیارها:
+Tank Geometry
+Required Throw
+Coverage
+Accessibility
+Obstructions
+Safety Distance
+Fire Exposure
+Worst Case
+Adjacent Tank Exposure
+کاربر بتواند Monitor را Drag کند.
+بعد از جابه‌جایی:
+Coverage + Hydraulic Calculation + Pressure + Reach
+دوباره محاسبه شود.
+ 
+⸻
+ 
+33 — HYDRANT PLACEMENT
+Hydrantها نیز Auto Placement داشته باشند.
+معیار:
+Standard Spacing
+Equipment Access
+Firefighter Access
+Ring Connectivity
+Tank Coverage
+Road Access
+Obstructions
+کاربر بتواند Hydrant را جابه‌جا کند.
+ 
+⸻
+ 
+34 — GRAPHICAL ENGINEERING MAP
+یک Plan View / 2D Engineering Map ایجاد شود.
+Objects:
+Tank
+Dyke
+Building
+Road
+Firewater Tank
+Pump
+Monitor
+Hydrant
+Foam Chamber
+Nozzle
+Pipe
+Valve
+Tee
+Elbow
+Drain
+قابلیت‌ها:
+Move
+Rotate
+Resize
+Duplicate
+Delete
+Edit
+Snap
+Measure
+Coordinate
+Zoom
+Pan
+ 
+⸻
+ 
+35 — LIVE COVERAGE
+روی نقشه نمایش داده شود:
+Monitor Coverage
+Hydrant Coverage
+Cooling Coverage
+[9/11/2026 03:45] dr.Sepehr.666: Foam Coverage
+Blind Spots
+Unprotected Areas
+اگر نقطه‌ای تحت پوشش کافی نیست:
+COVERAGE FAILURE
+نمایش داده شود.
+ 
+⸻
+ 
+36 — PUMP ENGINE
+حداقل سه Pump:
+Main Fire Pump
+Standby Fire Pump
+Jockey Pump
+پشتیبانی شود.
+Fire Pump بر اساس:
+Required Flow
+Required Pressure
+TDH
+Elevation
+Friction Loss
+Residual Pressure
+Design Margin
+انتخاب شود.
+ 
+⸻
+ 
+37 — FIRE PUMP DATABASE
+Pump Database:
+Manufacturer
+Model
+Flow
+Head
+Pressure
+RPM
+Driver
+Diesel
+Electric
+Curve
+Efficiency
+Certification
+باشد.
+سیستم باید Pump Curve را بررسی کند.
+ 
+⸻
+ 
+38 — JOCKEY PUMP
+Jockey Pump جداگانه طراحی شود.
+پارامترها:
+Static Pressure
+Start Pressure
+Stop Pressure
+Pressure Maintenance
+Flow
+Head
+Jockey Pump نباید با Main Fire Pump اشتباه گرفته شود.
+ 
+⸻
+ 
+39 — FIREWATER STORAGE
+Firewater Tank باید بر اساس Worst Case Volume محاسبه شود.
+V_required = Σ(Q × Duration)
+برای Time Segmentهای مختلف.
+سپس:
+Required Volume
+Reserve
+Project Allowance
+Effective Volume
+Final Tank Capacity
+نمایش داده شود.
+ 
+⸻
+ 
+40 — EXISTING EQUIPMENT
+سامانه باید بتواند تجهیزات موجود پروژه را وارد کند.
+مثلاً:
+Diesel Centrifugal Fire Pump
+Flow:
+4500 GPM
+Pressure:
+12 bar
+Manufacturer:
+Volvo / Caterpillar
+اما این اطلاعات فقط به‌عنوان Existing Equipment Database وارد شوند و سیستم باید بررسی کند که آیا برای Worst Case مناسب هستند یا خیر.
+ 
+⸻
+ 
+41 — DESIGN MARGIN
+سیستم باید Design Margin را از Design Basis دریافت کند.
+هیچ Margin ثابت و مخفی نباشد.
+نمایش:
+Calculated Requirement
+Design Margin
+Selected Capacity
+Final Requirement
+ 
+⸻
+ 
+42 — SCENARIO SIMULTANEITY MATRIX
+یک Matrix ایجاد شود.
+مثلاً:
+System Tank Fire Dyke Fire Tank + Dyke Adjacent Exposure
+Foam ✓ ✓/Rule ✓/Rule —
+Tank Cooling ✓ — ✓ ✓
+Adjacent Cooling ✓/Rule — ✓/Rule ✓
+Hydrant Rule Rule Rule Rule
+Monitor Rule Rule Rule Rule
+Water Fog Rule Rule Rule Rule
+این Matrix باید قابل ویرایش باشد.
+ 
+⸻
+ 
+43 — STANDARD TRACEABILITY
+هر نتیجه باید Traceable باشد.
+مثلاً:
+Input → Formula → Parameter → Value → Unit → Standard → Section → Table → Result
+کاربر باید بتواند روی هر عدد کلیک کند و Source آن را ببیند.
+ 
+⸻
+ 
+44 — AUDIT TRAIL
+هر تغییر ثبت شود:
+Parameter
+Old Value
+New Value
+User
+Date
+Time
+Reason
+Source
+Override
+ 
+⸻
+ 
+45 — VALIDATION ENGINE
+کنترل شود:
+Diameter > 0
+Height > 0
+Area > 0
+Flow > 0
+Rate > 0
+Duration > 0
+Flash Point Valid
+Tank Type Valid
+Product Valid
+Coordinates Valid
+Equipment Count Valid
+تعداد تجهیزات همیشه با:
+CEILING()
+محاسبه شود.
+ 
+⸻
+ 
+46 — ENGINEERING STATUS
+برای هر بخش:
+PASS
+Requirement satisfied.
+MARGINAL
+Requirement nearly satisfied / engineering review required.
+FAIL
+Requirement not satisfied.
+نمایش شود.
+ 
+⸻
+ 
+47 — AUTOMATIC ENGINEERING WARNINGS
+مثلاً:
+Insufficient Foam Flow
+Insufficient Cooling Flow
+Insufficient Residual Pressure
+Excessive Pipe Velocity
+Excessive Friction Loss
+Pump Capacity Insufficient
+Firewater Storage Insufficient
+Monitor Coverage Failure
+Hydrant Spacing Failure
+Standard Conflict
+Missing Standard Data
+Invalid Geometry
+Selected Worst Case Not Maximum
+Manual Override Active
+ 
+⸻
+ 
+48 — ENGINEERING REPORT
+سامانه باید Report حرفه‌ای تولید کند.
+ساختار:
+1. Executive Summary
+2. Design Basis
+3. Applicable Standards
+4. Tank Data
+5. Product Data
+6. Flash Point Classification
+7. Tank Geometry
+8. Dyke Calculation
+9. Fire Scenarios
+10. Tank Fire
+11. Dyke Fire
+12. Tank + Dyke Fire
+13. Foam Calculation
+14. Foam Chambers
+15. Foam Monitors
+16. Cooling Calculation
+17. Adjacent Tank Cooling
+18. Four-Hour Cooling
+19. Water Fog / Jet
+20. Hydrant System
+21. Firewater Demand
+22. Time-Based Demand
+23. Worst Case
+24. Hydraulic Calculation
+25. Pipe Sizing
+26. Pump Calculation
+27. Jockey Pump
+28. Firewater Storage
+29. Equipment Schedule
+30. Equipment Coordinates
+31. Firewater Ring Layout
+32. Coverage Analysis
+33. PASS / MARGINAL / FAIL
+34. Engineering Warnings
+35. Calculation Traceability
+36. Audit Trail
+ 
+⸻
+ 
+49 — EQUIPMENT SCHEDULE
+برای تمام تجهیزات:
+Tag
+Description
+Type
+Quantity
+Flow
+Pressure
+Size
+Elevation
+Coordinates
+Standard
+Manufacturer
+Model
+Duty
+Standby
+Remarks
+ 
+⸻
+ 
+50 — USER CONTROL
+کاربر باید دو حالت داشته باشد:
+AUTO ENGINEERING DESIGN
+سیستم همه چیز را طراحی و پیشنهاد دهد.
+ENGINEER / MANUAL DESIGN
+مهندس هر پارامتر را Override کند.
+[9/11/2026 03:45] dr.Sepehr.666: هر Override باید مشخصاً با علامت:
+MANUAL OVERRIDE
+نمایش داده شود.
+ 
+⸻
+ 
+51 — NO HIDDEN ASSUMPTIONS
+ممنوع:
+Guessing
+Hidden Constants
+Hard-coded Standard Rates
+Hard-coded Durations
+Hard-coded Equipment Capacities
+Hard-coded Pipe Losses
+Untraceable Values
+اگر داده وجود ندارد:
+DATA REQUIRED
+اگر استانداردها اختلاف دارند:
+STANDARD CONFLICT
+اگر مقدار توسط کاربر تغییر داده شده:
+MANUAL OVERRIDE
+ 
+⸻
+ 
+52 — SOFTWARE ARCHITECTURE
+سیستم را به ماژول‌های مستقل تقسیم کن:
+/core
+    geometry_engine
+    scenario_engine
+    foam_engine
+    cooling_engine
+    dyke_engine
+    demand_engine
+    hydraulic_engine
+    pipe_engine
+    pump_engine
+    storage_engine
+    placement_engine
+    coverage_engine
+    validation_engine
+    worst_case_engine
+/database
+    standards
+    products
+    equipment
+    pipes
+    pumps
+    nozzles
+    fittings
+/ui
+    project
+    tanks
+    dyke
+    scenarios
+    calculations
+    map
+    hydraulic
+    equipment
+    reports
+    settings
+/reports
+    engineering_report
+    calculation_sheets
+    equipment_schedule
+/tests
+    unit
+    integration
+    engineering
+    hydraulic
+    scenario
+    geometry
+ 
+⸻
+ 
+53 — DATABASE DESIGN
+Database باید حداقل شامل:
+Projects
+Tanks
+Products
+Dykes
+Scenarios
+Standards
+StandardParameters
+Equipment
+FoamDevices
+Monitors
+Hydrants
+Nozzles
+Pipes
+Fittings
+Pumps
+HydraulicNodes
+HydraulicEdges
+DesignCases
+Calculations
+Overrides
+AuditLogs
+باشد.
+ 
+⸻
+ 
+54 — ENGINEERING CALCULATION TRACE
+برای هر Calculation یک Record ایجاد شود:
+Calculation ID
+Scenario
+Input
+Formula
+Parameter
+Value
+Unit
+Source
+Result
+Timestamp
+ 
+⸻
+ 
+55 — TESTING
+قبل از تحویل سیستم باید تست شود.
+Unit Tests
+Tank Area
+Tank Volume
+Shell Area
+Dyke Volume
+Spill Area
+Foam Flow
+Foam Volume
+Concentrate
+Cooling Flow
+Cooling Volume
+Monitor Quantity
+Chamber Quantity
+Hydrant Flow
+Integration Tests
+Tank Fire
+Dyke Fire
+Tank + Dyke
+Adjacent Cooling
+Worst Case
+Hydraulic Network
+Pump
+Storage
+UI Tests
+Input
+Map
+Drag Equipment
+Manual Override
+Recalculation
+Report Generation
+ 
+⸻
+ 
+56 — ENGINEERING QA
+سیستم باید برای نمونه پروژه‌های Test Case داشته باشد.
+برای هر Test Case:
+Input
+Expected Result
+Actual Result
+Difference
+Tolerance
+PASS/FAIL
+نمایش داده شود.
+ 
+⸻
+ 
+57 — SAMPLE PROJECT
+یک پروژه نمونه با:
+Multiple Tanks
+Dyke
+Firewater Ring
+Hydrants
+Monitors
+Foam System
+Cooling System
+Fire Pump
+Standby Pump
+Jockey Pump
+Firewater Tank
+ایجاد کن تا تمام سیستم روی آن تست شود.
+ 
+⸻
+ 
+58 — DESIGN ITERATION
+پس از هر تغییر:
+INPUT CHANGE
+↓
+RECALCULATE
+↓
+SCENARIO UPDATE
+↓
+DEMAND UPDATE
+↓
+HYDRAULIC UPDATE
+↓
+EQUIPMENT UPDATE
+↓
+COVERAGE UPDATE
+↓
+PASS/FAIL UPDATE
+↓
+REPORT UPDATE
+همه چیز باید Live باشد.
+ 
+⸻
+ 
+59 — ENGINEERING GRAPHICAL OUTPUT
+نقشه باید امکان نمایش داشته باشد:
+Tank IDs
+Dimensions
+Dyke Dimensions
+Pipe Diameter
+Flow Direction
+Valve
+Hydrant
+Monitor
+Foam Chamber
+Pump
+Firewater Tank
+Elevations
+Coordinates
+Coverage Areas
+Blind Spots
+Flow Values
+Pressure Values
+ 
+⸻
+ 
+60 — FINAL ENGINEERING OBJECTIVE
+هدف نهایی این است که کاربر بتواند فقط اطلاعات اولیه پروژه را وارد کند:
+Tank Geometry
+Product
+Flash Point
+Tank Type
+Dyke Geometry
+Adjacent Tanks
+Site Geometry
+Existing Equipment
+Project Standards
+و سیستم بتواند به‌صورت خودکار:
+Fire Scenarios
+↓
+Fire Areas
+↓
+Foam Requirement
+↓
+Cooling Requirement
+↓
+Hydrant Requirement
+↓
+Monitor Requirement
+↓
+Water Demand
+↓
+Worst Case
+↓
+Firewater Ring
+↓
+Pipe Size
+↓
+Hydraulic Calculation
+↓
+Pump
+↓
+Jockey Pump
+↓
+Firewater Storage
+↓
+Equipment Placement
+↓
+Coverage
+↓
+PASS/FAIL
+↓
+Engineering Report
+را تولید کند.
+ 
+⸻
+ 
+61 — CRITICAL ENGINEERING RULE
+این نرم‌افزار باید یک Decision Support / Engineering Design Engine باشد، نه جایگزین Engineer of Record.
+تمام خروجی‌ها باید قابل Audit و Verification باشند.
+هر عدد استانداردی باید قابل ردیابی باشد.
+هیچ عددی بدون Source وارد محاسبات نشود.
+در صورت نبود داده، سیستم باید متوقف نشده و مقدار را جعل نکند؛ بلکه:
+DATA REQUIRED
+اعلام کند.
+ 
+⸻
+ 
+62 — FINAL DELIVERY REQUIREMENT
+پس از تکمیل توسعه:
+تمام قابلیت‌ها را پیاده‌سازی کن.
+تمام Calculation Engineها را تست کن.
+تمام سناریوها را تست کن.
+Hydraulic Engine را تست کن.
+Auto Design را تست کن.
+Manual Override را تست کن.
+Standard Conflict را تست کن.
+Invalid Input را تست کن.
+[9/11/2026 03:45] dr.Sepehr.666: Map و Placement را تست کن.
+Coverage را تست کن.
+Report را تست کن.
+تمام خطاها را اصلاح کن.
+Regression Test اجرا کن.
+Final QA انجام بده.
+Source Code کامل را آماده کن.
+نسخه Windows را Build کن.
+نسخه Android را Build کن.
+نسخه iOS را در صورت امکان Build کن.
+تمام فایل‌های نهایی را قابل استفاده و قابل تحویل قرار بده.
+ 
+⸻
+ 
+63 — FINAL RESPONSE FROM DEVELOPMENT AGENT
+در پایان توسعه فقط اعلام نکن:
+“APP COMPLETED”
+بلکه گزارش دقیق بده:
+PROJECT STATUS
+VERSION
+BUILD STATUS
+TEST STATUS
+ENGINEERING TEST STATUS
+HYDRAULIC TEST STATUS
+AUTO DESIGN STATUS
+MANUAL DESIGN STATUS
+MAP STATUS
+REPORT STATUS
+WINDOWS BUILD
+ANDROID BUILD
+IOS BUILD
+SOURCE CODE
+KNOWN LIMITATIONS
+DATA REQUIRED
+STANDARD CONFLICTS
+FINAL QA RESULT
+و هر مورد ناقص را صریحاً اعلام کن.
+ 
+⸻
+ 
+FINAL COMMAND
+اکنون این Specification را به‌عنوان Single Source of Truth پروژه در نظر بگیر.
+هیچ بخش مهمی از Specification حذف نشود.
+ابتدا Architecture را ایجاد کن، سپس Database و Standard Engine، سپس Calculation Engines، سپس Hydraulic Engine، سپس Auto Design، سپس Graphical Design، سپس Reporting و در نهایت Testing و Packaging را انجام بده.
+در تمام مراحل:
+Accuracy > Completeness > Automation > UI
+و:
+Engineering Traceability > Convenience
+و:
+No Guessing. No Hidden Assumptions. No Hard-Coded Standards.
+هدف نهایی:
+A PROFESSIONAL, AUDITABLE, TRACEABLE, AUTO/MANUAL INDUSTRIAL FIRE PROTECTION ENGINEERING DESIGN SYSTEM FOR HYDROCARBON TANK FARMS.

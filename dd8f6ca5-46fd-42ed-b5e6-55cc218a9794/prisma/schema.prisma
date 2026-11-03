@@ -1,0 +1,48 @@
+// SHOGO:CUSTOM-START prisma-header
+// Managed by Shogo. Do not add a datasource `url` or change the generator `provider` — the database URL is configured in prisma.config.ts (Prisma 7+).
+generator client {
+  provider = "prisma-client"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "sqlite"
+}
+// SHOGO:CUSTOM-END
+
+model User {
+  id        String   @id @default(cuid())
+  email     String   @unique
+  name      String?
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+  projects  Project[]
+
+  @@map("users")
+}
+
+model Project {
+  id            String   @id @default(cuid())
+  name          String
+  description   String?
+  projectType   String   @default("blank") // blank | upload
+  widthMeters   Float    @default(100)
+  heightMeters  Float    @default(100)
+  mapImageUrl   String?
+  calibration   String?  // JSON string for corner calibration points
+  layers        String   @default("[]") // JSON array of layer configs
+  elements      String   @default("[]") // JSON array of placed elements
+  checklist     String   @default("[]") // JSON array of checklist completions
+  zones         String   @default("[]") // JSON array of zone classifications
+  worstCase     String?  // JSON worst case scenario data
+  designBasis   String?  // JSON design basis (parameters with provenance/verification status)
+  designData    String?  // JSON AI design proposal data
+  ringDesign    String?  // JSON ring pipe design data
+  owner         String?
+  createdAt     DateTime @default(now()) @map("created_at")
+  userId        String?
+  user          User?    @relation(fields: [userId], references: [id])
+  updatedAt     DateTime @updatedAt @map("updated_at")
+
+  @@map("projects")
+}

@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <defs>
+    <linearGradient id="ugBody" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#d6d3d1"/>
+      <stop offset="50%" stop-color="#a8a29e"/>
+      <stop offset="100%" stop-color="#57534e"/>
+    </linearGradient>
+  </defs>
+  <line x1="3" y1="30" x2="97" y2="30" stroke="#78716c" stroke-width="1.5" stroke-dasharray="5 3"/>
+  <rect x="12" y="16" width="76" height="68" rx="6" fill="url(#ugBody)" stroke="#57534e" stroke-width="2"/>
+  <ellipse cx="50" cy="34" rx="34" ry="9" fill="#e7e5e4" stroke="#78716c" stroke-width="1.5"/>
+  <rect x="42" y="8" width="16" height="12" rx="2" fill="#78716c"/>
+  <text x="50" y="60" text-anchor="middle" fill="#1c1917" font-size="9" font-weight="bold">UNDERGROUND</text>
+  <text x="50" y="72" text-anchor="middle" fill="#44403c" font-size="7">زیرزمینی</text>
+</svg>

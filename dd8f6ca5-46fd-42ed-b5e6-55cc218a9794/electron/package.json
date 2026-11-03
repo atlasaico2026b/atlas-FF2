@@ -1,0 +1,72 @@
+{
+  "name": "atlas-fire-safety",
+  "version": "1.0.0",
+  "description": "اطلس — نرم‌افزار هوشمند طراحی سیستم‌های ایمنی و آتش‌نشانی",
+  "author": "سپهر ممبینی",
+  "main": "main.js",
+  "scripts": {
+    "electron:dev": "electron .",
+    "electron:build:win": "electron-builder --win nsis --x64",
+    "dist:desktop": "node make-desktop-dist.mjs"
+  },
+  "build": {
+    "appId": "com.atlas.firesafety",
+    "productName": "ATLAS - Fire Protection Design",
+    "directories": {
+      "output": "../release"
+    },
+    "files": [
+      "main.js",
+      "server.cjs",
+      "package.json"
+    ],
+    "extraResources": [
+      {
+        "from": "../dist-desktop",
+        "to": "dist",
+        "filter": [
+          "**/*",
+          "!**/*.zip",
+          "!**/*.tar.gz",
+          "!__probe.txt"
+        ]
+      }
+    ],
+    "win": {
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64"
+          ]
+        }
+      ],
+      "icon": "../public/icons/icon.ico"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "ATLAS",
+      "installerIcon": "../public/icons/icon.ico",
+      "uninstallerIcon": "../public/icons/icon.ico",
+      "installerHeaderIcon": "../public/icons/icon.ico"
+    },
+    "mac": {
+      "target": "dmg",
+      "icon": "../public/icons/icon-512.png"
+    },
+    "linux": {
+      "target": "AppImage",
+      "icon": "../public/icons/icon-512.png"
+    }
+  },
+  "devDependencies": {
+    "electron": "^33.4.11",
+    "electron-builder": "^25.1.8"
+  },
+  "keywords": [],
+  "license": "ISC",
+  "type": "commonjs"
+}

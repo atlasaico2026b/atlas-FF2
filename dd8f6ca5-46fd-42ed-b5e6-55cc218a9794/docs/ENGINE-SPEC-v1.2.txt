@@ -1,0 +1,1216 @@
+TANK FOAM & FIRE-WATER CALCULATION ENGINE SPECIFICATION v1.2
+Deterministic Engineering Calculation Reference — English Formula/Rule Set
+Design Basis Profile: NFPA 11-2024 + NFPA 15-2022 + NFPA 30-2024 + project-selected editions of NFPA 20/22/24. The standards edition is a locked configuration value; the engine shall not silently switch editions.
+Supported Fuels: Gasoline, Premium Gasoline, Diesel Fuel, Kerosene, Naphtha, Crude Oil, Sour Crude Oil, Oil-Contaminated Material (ORD).
+Deterministic Rule: Every numeric design value shall originate from an explicit input, reference-table record, manufacturer/listing record, or defined formula. Missing required values shall stop the affected calculation.
+1. SYSTEM SCOPE
+Area
+| Engine Function
+Tank Geometry
+| Tank diameter, shell height, liquid level, roof geometry, annular seal area, foam dam geometry, tank volume.
+Roof Logic
+| Fixed roof, external floating roof, internal floating roof; roof construction and seal configuration.
+Foam Protection
+| Surface application, subsurface application, top-of-seal, below-the-seal/weather-shield, seal-only, full-surface, dike/spill protection.
+Cooling
+| Tank shell cooling, tank top cooling where applicable, adjacent-tank exposure cooling, cooling-ring/nozzle counts.
+Hydraulics
+| Hazen-Williams friction loss, minor losses, elevation, terminal pressure, network balancing.
+Foam Concentrate
+| Concentration, solution flow, concentrate flow, concentrate volume, dosing/proportioning pressure.
+Fire-Water Supply
+| Fire pump duty, jockey pump duty logic, water storage demand, pump candidate validation.
+Site Equipment
+| Fire-water ring main hydraulic sizing, monitor/hydrant coverage, simultaneous demand scenarios, worst-case demand.
+Scenario Engine
+| Fixed-roof fire, floating-roof seal fire, below-seal fire, internal-roof seal/full-surface cases, sunken-roof/manual full-surface case, tank rupture/spill/dike case, combined exposure cases.
+2. REQUIRED INPUT PARAMETERS
+ID
+| Parameter
+| Unit
+| Required When
+IN-001
+| Tank Diameter D
+| m
+| All vertical cylindrical tanks
+IN-002
+| Tank Shell Height H
+| m
+| Geometry/cooling
+IN-003
+| Liquid Operating Level H_liquid
+| m
+| Liquid surface / volume
+IN-004
+| Fuel Type
+| ID
+| All foam scenarios
+IN-005
+| Flash Point FP
+| °C
+| Fuel classification
+IN-006
+| Boiling Point BP
+| °C
+| NFPA 30 sub-classification where applicable
+IN-007
+| Storage Temperature T_storage
+| °C
+| Heated-above-flash-point logic / product condition
+IN-008
+| Roof Type
+| ENUM
+| Fixed / External Floating / Internal Floating
+IN-009
+| Floating Roof Construction
+| ENUM
+| External/internal floating roof logic
+IN-010
+| Primary Seal Type
+| ENUM
+| Floating roof seal logic
+IN-011
+| Secondary Seal Type
+| ENUM
+| Floating roof logic
+IN-012
+| Foam Dam Inner Diameter D_dam
+| m
+| Top-of-seal calculations
+IN-013
+| Seal-to-Roof Elevation
+| mm
+| Foam dam height
+IN-014
+| Secondary Seal Highest Elevation
+| mm
+| Foam dam height
+IN-015
+| Burnout Panel Highest Elevation
+| mm
+| Foam dam height
+IN-016
+| Foam Concentration C
+| decimal
+| Foam solution/concentrate
+IN-017
+| Foam Product Listing Data
+| record
+| All foam equipment
+IN-018
+| Nozzle/Discharge Outlet Listing
+| record
+| Outlet flow/pressure validation
+IN-019
+| Pipe ID d
+| m
+| Hydraulics
+IN-020
+| Pipe Length L
+| m
+| Hydraulics
+IN-021
+| Hazen-Williams C
+| -
+| Hydraulics
+IN-022
+| Minor-Loss K
+| -
+| Hydraulics
+IN-023
+| Elevation Difference Δz
+| m
+| Hydraulics
+IN-024
+| Adjacent Tank Geometry
+| record
+| Exposure cooling
+IN-025
+| Cooling Nozzle Listing
+| record
+| Cooling-ring/nozzle count
+IN-026
+| Dike/Bund Geometry
+| polygon/record
+| Dike/spill case
+IN-027
+| Monitor Listing + Coverage
+| record
+| Monitor count/coverage
+IN-028
+| Hydrant Coverage Criteria
+| record
+| Hydrant coverage/count
+IN-029
+| Simultaneous Demand Rule
+| record
+| Worst-case site demand
+IN-030
+| Jockey Pump Design Basis
+| record
+| Jockey sizing
+3. REFERENCE TABLES
+3.0 ROOF TYPE / SCENARIO ITEM MATRIX
+Scenario ID
+| Roof / Condition
+| Protected Area
+| Foam Equipment
+| Foam Dam
+| Cooling Outputs
+| Primary Count Logic
+SC-001
+| Fixed Roof / Surface
+| Liquid surface area
+| Type II fixed foam outlets
+| Not applicable
+| Shell/top exposure cooling
+| NFPA 11 fixed-outlet table
+SC-002
+| Fixed Roof / Subsurface
+| Liquid surface area
+| Subsurface foam outlets
+| Not applicable
+| Shell/top exposure cooling
+| NFPA 11 subsurface table + velocity
+SC-003
+| Fixed Roof / Semisubsurface
+| Liquid surface area
+| Listed semisubsurface outlets
+| Not applicable
+| Shell/top exposure cooling
+| Listed/approved system + NFPA 11
+SC-004
+| External Floating / Top-of-Seal
+| Seal annulus
+| Fixed outlets / pourers + foam dam
+| Required
+| Shell/exposure cooling
+| NFPA 11 rate + dam-based outlet spacing
+SC-005
+| External Floating / Below-Seal
+| Seal zone
+| Below-seal fixed outlets / listed pourers
+| Conditional by seal construction
+| Shell/exposure cooling
+| NFPA 11 rate + seal-specific spacing
+SC-006
+| External Floating / Sunken Roof
+| Full liquid surface after sinking
+| Manual/mobile or specifically engineered protection
+| Not a fixed-system default
+| Exposure cooling as applicable
+| MANUAL_ENGINEERING_BASIS required
+SC-007
+| Internal Floating / Seal Fire
+| Seal annulus
+| Fixed outlets mapped to open-top floating-roof rules
+| Per mapped top-of-seal method
+| Exposure cooling as applicable
+| Use top-of-seal logic
+SC-008
+| Internal Floating / Full Surface
+| Liquid surface area
+| Fixed-roof-equivalent foam system
+| Not applicable
+| Exposure cooling as applicable
+| Use fixed-roof same-diameter rules
+SC-009
+| Diked Area / Bund Fire
+| Net spill area
+| Low-level outlets / monitors / foam-water system
+| Not applicable
+| Exposure cooling as applicable
+| NFPA 11 dike/spill table
+SC-010
+| Tank Rupture / Spill
+| Defined containment spill area
+| Dike/spill foam
+| Not applicable
+| Exposure cooling as applicable
+| Geometry + applicable spill rule
+SC-011
+| Tank + Adjacent Exposure
+| Primary fire area + designated exposed surfaces
+| Primary foam + cooling
+| Per primary scenario
+| Primary + adjacent tank cooling
+| Simultaneous demand rule
+SC-012
+| Site Worst Case
+| Scenario-specific
+| Scenario-specific
+| Scenario-specific
+| Scenario-specific
+| Max pump duty + max storage consumption separately
+3.0A NFPA 30-2024 LIQUID CLASSIFICATION
+Class
+| Flash Point FP
+| Boiling Point BP
+| Classification Rule
+IA
+| FP < 22.8°C
+| BP < 37.8°C
+| Both conditions apply
+IB
+| FP < 22.8°C
+| BP ≥ 37.8°C
+| Both conditions apply
+IC
+| 22.8°C ≤ FP < 37.8°C
+| No BP condition
+| FP range controls
+II
+| 37.8°C ≤ FP < 60°C
+| No BP condition
+| FP range controls
+IIIA
+| 60°C ≤ FP < 93°C
+| No BP condition
+| FP range controls
+IIIB
+| FP ≥ 93°C
+| No BP condition
+| FP range controls
+3.0B SUPPORTED FUEL PROFILE INPUTS
+Fuel ID
+| Fuel
+| Required Classification Inputs
+| Rate/Time Selection Dependency
+FUEL-001
+| Gasoline
+| FP; BP where applicable; storage temperature; composition/additives when relevant
+| NFPA 30 classification + NFPA 11 applicable hydrocarbon record
+FUEL-002
+| Premium Gasoline
+| FP; BP where applicable; storage temperature; composition/additives when relevant
+| Same deterministic lookup as gasoline unless explicit product data changes classification/application
+FUEL-003
+| Diesel Fuel
+| FP; storage temperature
+| NFPA 30 classification + applicable NFPA 11 hydrocarbon record
+FUEL-004
+| Kerosene
+| FP; storage temperature
+| NFPA 30 classification + applicable NFPA 11 hydrocarbon record
+FUEL-005
+| Naphtha
+| FP; BP; storage temperature
+| NFPA 30 classification + applicable NFPA 11 hydrocarbon record
+FUEL-006
+| Crude Oil
+| FP/product properties; storage temperature
+| Crude petroleum record where applicable
+FUEL-007
+| Sour Crude Oil
+| FP/product properties; storage temperature; H2S hazard flag
+| Crude petroleum record + project H2S controls
+FUEL-008
+| Oil-Contaminated Material (ORD)
+| Composition; phase; FP when measurable; storage/handling condition
+| MANUAL_ENGINEERING_BASIS until an applicable listed/reference record exists
+3.1 NFPA 11-2024 — Fixed-Roof Tank Fixed Foam Outlets
+Tank Diameter
+| Minimum Fixed Outlets
+≤ 24 m
+| 1
+>24 to 37 m
+| 2
+>37 to 43 m
+| 3
+>43 to 49 m
+| 4
+>49 to 55 m
+| 5
+>55 to 61 m
+| 6
+>61 m
+| 6 + 1 per additional 465 m²
+3.2 NFPA 11-2024 — Type II Surface Application on Fixed-Roof (Cone) Hydrocarbon Tanks
+Hydrocarbon Condition
+| Minimum Rate
+| Minimum Time
+Flash point 38–60°C
+| 4.1 L/min/m²
+| 30 min
+Flash point <38°C or liquid heated above flash point
+| 4.1 L/min/m²
+| 55 min
+Crude petroleum
+| 4.1 L/min/m²
+| 55 min
+Control
+| Value
+Maximum application rate for subsurface table
+| 8.1 L/min/m²
+Proportional time reduction when rate > 4.1
+| Allowed only if reduced time ≥ 70% of minimum time and all velocity/device limits are met.
+3.3 NFPA 11-2024 — Subsurface Outlets for Fixed-Roof Hydrocarbon Tanks
+Tank Diameter
+| FP < 38°C
+| FP ≥ 38°C
+≤24 m
+| 1
+| 1
+>24 to 37 m
+| 2
+| 1
+>37 to 43 m
+| 3
+| 2
+>43 to 49 m
+| 4
+| 2
+>49 to 55 m
+| 5
+| 2
+>55 to 61 m
+| 6
+| 3
+>61 m
+| 6 + 1 per 465 m²
+| 3 + 1 per 700 m²
+Subsurface Control
+| Value
+Maximum foam velocity — Class IB
+| 3 m/s
+Maximum foam velocity — other classes
+| 6 m/s
+Outlet elevation above highest water level
+| ≥300 mm
+Back pressure
+| Within listed/tested device pressure range
+Class IA hydrocarbon
+| Subsurface injection not permitted
+3.4 NFPA 11-2024 — External/Open-Top Floating Roof, Top-of-Seal
+Seal Configuration
+| Rate
+| Time
+| Max Outlet Spacing with 305 mm Dam
+| Max Outlet Spacing with 600 mm Dam
+Mechanical shoe seal
+| 12.2 L/min/m²
+| 20 min
+| 40 m
+| 24.4 m
+Tube seal + metal weather shield
+| 12.2 L/min/m²
+| 20 min
+| 40 m
+| 24.4 m
+Fully/partly combustible secondary seal
+| 12.2 L/min/m²
+| 20 min
+| 40 m
+| 24.4 m
+All-metal secondary seal
+| 12.2 L/min/m²
+| 20 min
+| 40 m
+| 24.4 m
+3.5 NFPA 11-2024 — External/Open-Top Floating Roof, Below-the-Seal / Weather Shield
+Seal Configuration
+| Rate
+| Time
+| Max Outlet Spacing
+| Foam Dam
+Mechanical shoe seal
+| 20.4 L/min/m²
+| 10 min
+| 40 m
+| Not required
+Tube seal; >150 mm tube-top to pontoon-top
+| 20.4 L/min/m²
+| 10 min
+| 18 m
+| Not required
+Tube seal; <150 mm tube-top to pontoon-top
+| 20.4 L/min/m²
+| 10 min
+| 18 m
+| Required
+Foam discharge below metal secondary seal
+| 20.4 L/min/m²
+| 10 min
+| 18 m
+| Metal secondary seal equivalent
+3.6 NFPA 11-2024 — Foam Dam Controls
+Parameter
+| Constraint
+Dam height
+| ≥300 mm from seal-to-roof connection
+Height above metal secondary seal / combustible seal with plastic-foam log
+| ≥50 mm
+Height above burnout panels
+| ≥50 mm
+Distance from tank shell at highest dam point
+| 300–600 mm
+Drain slot area
+| 278 mm² per m² of dammed area
+Drain slot height
+| ≤10 mm
+Dam material
+| ≥3.4 mm steel plate
+3.7 NFPA 11-2024 — Internal/Covered Floating Roof Logic
+Roof Construction
+| Seal-Only Allowed?
+| Full-Surface Protection
+Steel double deck
+| Yes
+| As required by selected scenario
+Steel pontoon
+| Yes
+| As required by selected scenario
+Compliant metallic sandwich panel
+| Yes
+| As required by selected scenario
+Compliant composite sandwich roof/seal system
+| Yes
+| As required by selected scenario
+Other construction
+| No
+| Required
+Internal Floating Roof Fire Basis
+| Calculation Mapping
+Full-surface fire
+| Treat as fixed-roof (cone) tank of same diameter; use fixed-roof foam design rules.
+Seal fire
+| Treat as open-top floating-roof tank of same diameter; use top-of-seal table with fixed outlets.
+Subsurface / semisubsurface for covered floating roof
+| Not permitted.
+3.8 NFPA 11-2024 — Diked Areas / Spill Protection
+Protection Method
+| Minimum Rate
+| Class I Time
+| Class II Time
+Low-level foam discharge outlets
+| 4.1 L/min/m²
+| 30 min
+| 20 min
+Foam monitors
+| 6.5 L/min/m²
+| 30 min
+| 20 min
+Compressed-air foam
+| Manufacturer-listed rate
+| 30 min
+| 20 min
+3.9 NFPA 11-2024 — Supplementary Foam Hose Streams
+Largest Tank Diameter
+| Minimum Hose Streams
+| Flow per Stream
+| Operating Time
+≤20 m
+| 1
+| 190 L/min
+| 10 min or more by table
+20–36 m
+| 2
+| 190 L/min
+| 20 min
+>36 m
+| 3
+| 190 L/min
+| 30 min
+3.10 NFPA 15-2022 — Vessel Exposure Cooling
+Cooling Parameter
+| Requirement
+Net water spray rate on exposed vessel surface
+| 4.1 L/min/m²
+Vertical nozzle spacing when rundown is contemplated
+| ≤3.7 m along protected surface
+Horizontal nozzle arrangement
+| Patterns shall meet or overlap at protected surface
+Nozzle spacing
+| Use listed/approved nozzle coverage; do not hard-code universal circumferential spacing
+4. FORMULA DEFINITIONS
+ID
+| Name
+| Deterministic Formula
+| Inputs
+| Output
+GEOM-001
+| Tank liquid surface area
+| A_liquid = π × D² / 4
+| D [m]
+| m²
+GEOM-002
+| Tank gross cylindrical volume
+| V_tank = π × D² × H / 4
+| D [m], H [m]
+| m³
+GEOM-003
+| Tank shell area
+| A_shell = π × D × H_protected
+| D [m], H_protected [m]
+| m²
+GEOM-004
+| Tank top area
+| A_top = π × D² / 4
+| D [m]
+| m²
+GEOM-005
+| Annular width
+| W = (D_shell − D_dam) / 2
+| D_shell, D_dam [m]
+| m
+GEOM-006
+| Annular mean diameter
+| D_mean = (D_shell + D_dam) / 2
+| D_shell, D_dam [m]
+| m
+GEOM-007
+| Foam-dammed annular area
+| A_annulus = π × D_mean × W
+| D_mean, W
+| m²
+GEOM-008
+| Foam-dammed geometric volume
+| V_annulus = A_annulus × (H_dam / 1000)
+| A_annulus [m²], H_dam [mm]
+| m³
+FOAM-001
+| Required foam solution flow
+| Q_solution = A_protected × R
+| A [m²], R [L/min/m²]
+| L/min
+FOAM-002
+| Flow per discharge outlet
+| Q_outlet = Q_solution / N_outlets
+| Q_solution, N_outlets
+| L/min
+FOAM-003
+| Foam concentrate flow
+| Q_conc = Q_solution × C
+| Q_solution, C [decimal]
+| L/min
+FOAM-004
+| Foam solution volume
+| V_solution = Q_solution × T
+| Q_solution, T [min]
+| L
+FOAM-005
+| Foam concentrate volume
+| V_conc = Q_solution × C × T
+| Q_solution, C, T
+| L
+FOAM-006
+| Water component of foam solution
+| Q_water_component = Q_solution × (1 − C)
+| Q_solution, C
+| L/min
+FOAM-007
+| Water volume component
+| V_water_component = V_solution × (1 − C)
+| V_solution, C
+| L
+FOAM-008
+| Listed outlet acceptance
+| Q_required_outlet ≤ Q_listed_at_P
+| Q_required, Q_listed
+| boolean
+FOAM-009
+| Listed pressure acceptance
+| P_min_listed ≤ P_inlet ≤ P_max_listed
+| P_inlet, listed range
+| boolean
+FOAM-010
+| Proportional time reduction
+| T_reduced = T_min × R_min / R_actual
+| T_min, R_min, R_actual
+| min
+DAM-001
+| Required foam dam height
+| H_dam = MAX(300, H_secondary + 50, H_burnout + 50)
+| H_secondary, H_burnout [mm]
+| mm
+DAM-002
+| Dam shell-distance validation
+| 300 ≤ S_dam_shell ≤ 600
+| S_dam_shell [mm]
+| boolean
+DAM-003
+| Drain slot area
+| A_slots = 278 × A_dammed
+| A_dammed [m²]
+| mm²
+COOL-001
+| Protected shell cooling area
+| A_cool_shell = π × D × H_cool
+| D [m], H_cool [m]
+| m²
+COOL-002
+| Protected cooling area
+| A_cool = A_cool_shell + A_top_if_required
+| component areas
+| m²
+COOL-003
+| Cooling flow
+| Q_cool = A_cool × R_cool
+| A_cool, R_cool
+| L/min
+RING-001
+| Cooling-ring count
+| N_rings = MAX(1, CEILING(H_cool / S_vertical_max))
+| H_cool, S_vertical_max
+| count
+RING-002
+| Nozzles per ring
+| N_nozzles_ring = MAX(1, CEILING(πD / S_circumferential_max))
+| D, S_circumferential_max
+| count
+RING-003
+| Flow per cooling ring
+| Q_ring = N_nozzles_ring × Q_nozzle
+| N_nozzles_ring, Q_nozzle
+| L/min
+RING-004
+| Total cooling flow
+| Q_total_cool = SUM(Q_ring_i)
+| ring flows
+| L/min
+HYD-001
+| Hazen-Williams head loss
+| h_f = 10.67 × L × Q^1.852 / (C^1.852 × d^4.87)
+| L [m], Q [m³/s], C, d [m]
+| m
+HYD-002
+| Velocity
+| v = Q / (πd² / 4)
+| Q [m³/s], d [m]
+| m/s
+HYD-003
+| Minor-loss head
+| h_m = K × v² / (2g)
+| K, v, g
+| m
+HYD-004
+| Pressure from head
+| ΔP = ρ × g × h / 100000
+| ρ, g, h
+| bar
+HYD-005
+| Terminal pressure head
+| H_terminal = P_terminal / (ρg)
+| P_terminal, ρ, g
+| m
+HYD-006
+| Required source head
+| H_source = H_terminal + H_static + Σh_f + Σh_m
+| network terms
+| m
+HYD-007
+| Required pressure
+| P_source = ρ × g × H_source
+| ρ, g, H_source
+| Pa
+HYD-008
+| Outlet/device K-factor flow
+| Q = K_factor × √P
+| K_factor, P in manufacturer units
+| manufacturer flow unit
+PUMP-001
+| Hydraulic power
+| P_hyd,kW = ρ × g × Q × H / 1000
+| ρ, g, Q [m³/s], H [m]
+| kW
+PUMP-002
+| Input power
+| P_input,kW = P_hyd,kW / η
+| P_hyd, η
+| kW
+SITE-001
+| Scenario demand flow
+| Q_case = SUM(Q_extinguish + Q_cooling + Q_monitor + Q_hose + Q_other)
+| scenario demand terms
+| L/min
+SITE-002
+| Worst-case pump flow
+| Q_pump_design = MAX(Q_case_i)
+| all cases
+| L/min
+SITE-003
+| Scenario water consumption
+| V_case = INTEGRAL(Q_firewater(t), dt)
+| time-dependent demand
+| L
+SITE-004
+| Worst-case storage volume
+| V_storage_design = MAX(V_case_i)
+| all cases
+| L
+SITE-005
+| Simple constant-demand volume
+| V = Q × T
+| Q [L/min], T [min]
+| L
+GEOM-009
+| Net dike/spill area
+| A_spill = A_dike_polygon − ΣA_nonspillable_footprints
+| A_dike, occupied footprints [m²]
+| m²
+GEOM-010
+| Adjacent tank shell area
+| A_adj_shell = π × D_adj × H_adj_protected
+| D_adj [m], H_adj [m]
+| m²
+COOL-004
+| Adjacent tank cooling area
+| A_adj_cool = A_adj_shell + A_adj_top_if_required
+| component areas
+| m²
+COOL-005
+| Adjacent tank cooling flow
+| Q_adj_cool = A_adj_cool × R_cool
+| A_adj_cool, R_cool
+| L/min
+RING-005
+| Total cooling nozzle count
+| N_total_nozzles = ΣN_nozzles_ring_i
+| ring nozzle counts
+| count
+FOAM-011
+| Proportioning concentration check
+| C_actual = Q_conc / Q_solution; ACCEPT if |C_actual − C_required| ≤ C_tolerance
+| Q_conc, Q_solution, C_required, C_tolerance
+| boolean
+FOAM-012
+| Proportioner capacity check
+| Q_solution_min ≤ Q_solution ≤ Q_solution_max AND Q_conc_min ≤ Q_conc ≤ Q_conc_max
+| listed ranges
+| boolean
+PUMP-003
+| Fire-pump duty pressure
+| P_fire_pump = P_source
+| P_source [bar]
+| bar
+PUMP-004
+| Fire-pump input power
+| P_motor,kW = P_hyd,kW / (η_pump × η_motor)
+| ρ, g, Q, H, η_pump, η_motor
+| kW
+SITE-006
+| Fire-water storage design volume
+| V_storage_design = MAX(V_case_i) + V_reserve
+| V_case, V_reserve [L]
+| L
+SITE-007
+| Case peak flow with explicit simultaneous demand
+| Q_case = Q_primary + Q_exposure + Q_monitor_active + Q_hose_active + Q_other_active
+| scenario demand terms
+| L/min
+4.1 CALCULATION OUTPUT MATRIX
+Output ID
+| Output
+| Source IDs
+| Unit
+| Selection/Validation
+OUT-001
+| Protected area
+| GEOM-*
+| m²
+| Must map to scenario protected-area definition
+OUT-002
+| Foam outlet count
+| LOOK-002 / scenario spacing
+| count
+| CEILING or NFPA table; never manual auto-minimum
+OUT-003
+| Foam solution flow
+| FOAM-001
+| L/min
+| Rate record must be traceable
+OUT-004
+| Foam solution volume
+| FOAM-004
+| L
+| No intermediate rounding
+OUT-005
+| Foam concentrate flow
+| FOAM-003
+| L/min
+| Concentration record required
+OUT-006
+| Foam concentrate volume
+| FOAM-005
+| L
+| No intermediate rounding
+OUT-007
+| Cooling flow — primary
+| COOL-003
+| L/min
+| NFPA 15 density + listed coverage
+OUT-008
+| Cooling flow — adjacent
+| COOL-005
+| L/min
+| Exposure list + NFPA 15 density
+OUT-009
+| Cooling ring count
+| RING-001
+| count
+| Coverage/listing validation required
+OUT-010
+| Nozzles per ring
+| RING-002
+| count
+| Listing-based circumferential spacing
+OUT-011
+| Total cooling nozzles
+| RING-005
+| count
+| Sum of validated ring counts
+OUT-012
+| Required fire-pump flow
+| SITE-002
+| L/min
+| MAX of valid simultaneous cases
+OUT-013
+| Required fire-pump pressure
+| PUMP-003
+| bar
+| Hydraulic case with terminal pressure
+OUT-014
+| Fire-pump input power
+| PUMP-004
+| kW
+| Selected pump efficiency data required
+OUT-015
+| Jockey-pump flow
+| IN-030 / project basis
+| L/min
+| No universal hard-coded value
+OUT-016
+| Jockey-pump pressure
+| IN-030 / network target
+| bar
+| Must be explicitly defined
+OUT-017
+| Fire-water storage volume
+| SITE-006
+| L
+| Worst-case integrated consumption + explicit reserve
+OUT-018
+| Ring-main diameter
+| LOOK-010 / hydraulic iteration
+| mm
+| Smallest project-library diameter passing all required cases
+OUT-019
+| Monitor count
+| IN-027 / coverage solver
+| count
+| Geometry + coverage + simultaneous demand
+OUT-020
+| Hydrant count
+| IN-028 / coverage solver
+| count
+| Site access + coverage + simultaneous demand
+5. LOOKUP / SELECTION ALGORITHMS
+ID
+| Algorithm
+| Rule
+LOOK-001
+| Fuel classification
+| Classify from explicit NFPA 30 input properties; do not classify from fuel name alone.
+LOOK-002
+| Fixed-roof outlet count
+| Select minimum row whose diameter condition contains D; apply explicit additional-area rule only when D exceeds table maximum.
+LOOK-003
+| Foam rate/time
+| Select table record by roof type + discharge method + hydrocarbon condition + product listing override.
+LOOK-004
+| Floating-roof method
+| Select Top-of-Seal or Below-the-Seal/Weather-Shield only when seal construction constraints are satisfied.
+LOOK-005
+| Internal floating roof
+| Allow seal-only only for listed roof constructions; otherwise require full-surface protection.
+LOOK-006
+| Cooling density
+| Select NFPA 15 vessel exposure density = 4.1 L/min/m² for exposed vessel surface unless a project/test/listing rule explicitly changes it.
+LOOK-007
+| Cooling ring spacing
+| S_vertical_max = MIN(3.7 m when rundown criterion applies, S_vertical_listed).
+LOOK-008
+| Cooling nozzle spacing
+| Use nozzle listing/pattern coverage. If no circumferential coverage value exists, return INPUT_REQUIRED.
+LOOK-009
+| Equipment selection
+| Filter equipment library by listing/approval, flow range, pressure range, concentration compatibility, temperature, material compatibility, then select the first project-approved candidate meeting all constraints.
+LOOK-010
+| Pump selection
+| Select from pump curve library; candidate is valid only if curve covers the required duty point and all project/NFPA constraints.
+LOOK-011
+| Jockey pump
+| Use project-defined maintenance/leakage design basis; no universal hard-coded jockey flow is permitted.
+LOOK-012
+| Monitor count
+| Coverage-driven geometry calculation using listing reach/angles/trajectory; no universal fixed monitor count is permitted.
+LOOK-013
+| Hydrant count
+| Coverage/access-driven calculation from site geometry and project criteria; no universal fixed spacing may be assumed unless the selected reference profile explicitly defines it.
+6. SCENARIO MATRIX
+Scenario ID
+| Roof / Condition
+| Primary Protected Area
+| Foam Method
+| Rate/Time Source
+| Cooling
+| Special Logic
+SC-001
+| Fixed Roof
+| Liquid surface area
+| Type II fixed outlet surface application
+| NF11 fixed-roof hydrocarbon table
+| Yes as exposure case
+| Fixed-roof outlet count by diameter
+SC-002
+| Fixed Roof
+| Liquid surface area
+| Subsurface injection
+| NF11 subsurface table
+| Yes as exposure case
+| Class IA and AR exclusions
+SC-003
+| Fixed Roof
+| Liquid surface area
+| Semisubsurface
+| NF11 + listed equipment
+| Yes as exposure case
+| Equipment must be listed/approved
+SC-004
+| External Floating Roof
+| Seal annulus
+| Top-of-Seal + foam dam
+| NF11 Table 5.3.5.3.1
+| Yes
+| 12.2 L/min/m²; 20 min; spacing from dam height
+SC-005
+| External Floating Roof
+| Seal zone
+| Below-the-Seal / Weather Shield
+| NF11 Table 5.3.5.3.6.1
+| Yes
+| 20.4 L/min/m²; 10 min; combustible secondary seal not permitted
+SC-006
+| External Floating Roof
+| Seal + full surface
+| Sunken/full-surface response
+| Manual/mobile engineering basis
+| Yes
+| Do not invent fixed-system rate/time for external roof sinking case
+SC-007
+| Internal Floating Roof
+| Seal annulus
+| Seal-area fixed outlets
+| Treat as open-top floating roof
+| Yes
+| Use top-of-seal table
+SC-008
+| Internal Floating Roof
+| Full liquid surface
+| Fixed-roof equivalent
+| Treat as fixed-roof cone same diameter
+| Yes
+| Use fixed-roof Section 5.2.5 design
+SC-009
+| Diked Area / Bund
+| Net dike fuel area
+| Low-level outlets / monitors / foam-water
+| NF11 dike table
+| Exposure cooling as applicable
+| Class I/II table; AR uses manufacturer basis
+SC-010
+| Tank Rupture / Spill
+| Defined spill area
+| Dike/spill foam
+| NF11 dike or nondiked spill rules
+| Exposure cooling as applicable
+| Spill area must be geometry/input-derived
+SC-011
+| Tank + Adjacent Exposure
+| Primary fire area + exposure surfaces
+| Primary foam + cooling
+| Combined scenario record
+| Yes
+| Simultaneous demands are summed by case
+SC-012
+| Site Worst Case
+| Multiple simultaneous hazards
+| Scenario-specific
+| Scenario library
+| Yes
+| Max pump flow and max storage consumption can be different cases
+7. CALCULATION DEPENDENCY MAP
+PROJECT INPUTS   │   ├── Fuel properties ──> Fuel classification ──> Applicable NFPA record   │                                                    │   ├── Roof type / construction / seal ────────────────┤   │                                                    ↓   ├── Tank geometry ──> Protected area ──> Application rate R + time T   │                                                    ↓   │                                  Required foam solution flow Q_solution   │                                                    ↓   │                      ┌─────────────────────────────┴─────────────────┐   │                      ↓                                               ↓   │              Concentrate flow Qc                              Outlet quantity N   │                      ↓                                               ↓   │              Concentrate volume Vc                            Flow per outlet   │                      │                                               │   │                      └──────────────────────┬─────────────────────────┘   │                                             ↓   │                                 Hydraulic network analysis   │                                             ↓   │                                  Required pressure/head   │                                             ↓   ├── Cooling geometry ──> Cooling area ──> Cooling flow ──> Ring/nozzle count   │                                             ↓   ├── Adjacent tank geometry ───────────────────┘   │   ├── Dike/spill geometry ──> Spill area ──> Foam demand   │   ├── Site monitor/hydrant coverage ──> Installed count + active demand   │   └── Scenario matrix ──> Simultaneous demands ──> Worst-case pump flow                                            └────> Worst-case water storage volume
+8. PROGRAMMING ARCHITECTURE
+Module
+| Responsibility
+| Must Not Do
+InputValidator
+| Validate types, ranges, units, mandatory fields
+| No defaulting missing engineering inputs
+StandardsRepository
+| Store locked standard edition, tables, constraints, constants
+| No AI-generated or inferred numeric values
+FuelClassifier
+| Resolve fuel class/scenario key from explicit properties
+| No name-only classification
+GeometryEngine
+| Calculate all tank/dike/annular areas and volumes
+| No silent geometry assumptions
+ProtectionSelector
+| Select scenario and applicable design record
+| No arbitrary alternative standard
+FoamCalculator
+| Calculate rates, flows, times, volumes
+| No hard-coded duplicated rates
+CoolingCalculator
+| Calculate exposed area, density, rings, nozzle count
+| No universal nozzle spacing without listing data
+HydraulicSolver
+| Solve pipe network and outlet pressure
+| No equal-flow split for loops
+EquipmentSelector
+| Validate pump/proportioner/nozzle/monitor candidates
+| No candidate approval without listing constraints
+ScenarioEngine
+| Create demand cases and simultaneous demands
+| No manual worst-case guessing
+WorstCaseEngine
+| Maximize pump duty and storage consumption separately
+| Do not assume the highest-flow case is always the highest-volume case
+ReportingEngine
+| Output formulas, IDs, source records, units, validation status
+| No unexplained final values
+9. PROGRAMMING FLOWCHART
+START   ↓ LOAD STANDARD PROFILE   ↓ LOAD INPUT DATA   ↓ VALIDATE REQUIRED INPUTS? ── NO ──> INPUT_REQUIRED / STOP AFFECTED CASE   │ YES   ↓ NORMALIZE UNITS   ↓ CLASSIFY FUEL (NFPA 30 PROFILE)   ↓ DETERMINE ROOF TYPE   ├── FIXED ROOF   │     ├── SURFACE   │     ├── SUBSURFACE   │     └── SEMISUBSURFACE   │   ├── EXTERNAL FLOATING ROOF   │     ├── TOP-OF-SEAL   │     ├── BELOW-THE-SEAL / WEATHER SHIELD   │     └── SUNKEN/FULL-SURFACE MANUAL BASIS   │   └── INTERNAL FLOATING ROOF         ├── SEAL FIRE         └── FULL-SURFACE FIRE   ↓ SELECT RATE/TIME/OUTLET TABLE RECORD   ↓ CALCULATE PROTECTED AREA   ↓ CALCULATE FOAM SOLUTION FLOW   ↓ CALCULATE OUTLET COUNT + FLOW PER OUTLET   ↓ VALIDATE EQUIPMENT LISTING / FLOW / PRESSURE   ↓ CALCULATE FOAM CONCENTRATE FLOW + VOLUME   ↓ CALCULATE TANK COOLING + ADJACENT-TANK COOLING   ↓ CALCULATE COOLING RINGS + NOZZLES PER RING   ↓ BUILD SCENARIO DEMAND CASE   ↓ RUN HYDRAULIC NETWORK SOLVER   ↓ CHECK TERMINAL PRESSURES / VELOCITIES / DEVICE LIMITS   ↓ BUILD ALL SCENARIO CASES   ↓ SELECT WORST-CASE PUMP DUTY = MAX CASE FLOW SUBJECT TO PRESSURE   ↓ SELECT WORST-CASE STORAGE CONSUMPTION = MAX INTEGRATED WATER VOLUME   ↓ VALIDATE FIRE PUMP CANDIDATE   ↓ VALIDATE JOCKEY PUMP DESIGN BASIS   ↓ VALIDATE FOAM DOSING / PROPORTIONING SYSTEM   ↓ SOLVE RING-MAIN DIAMETER + SITE HYDRAULICS   ↓ SOLVE MONITOR COVERAGE + HYDRANT COVERAGE   ↓ GENERATE FINAL ENGINEERING REPORT   ↓ END
+10. DETERMINISTIC DATA MODEL
+StandardsProfile {   id: string;   nfpa11Edition: string;   nfpa15Edition: string;   nfpa30Edition: string;   nfpa20Edition: string;   nfpa22Edition: string;   nfpa24Edition: string; }  ReferenceRecord {   id: string;   standard: string;   edition: string;   section: string;   conditions: Record<string, string|number|boolean>;   values: Record<string, number|string>;   units: Record<string, string>; }  FormulaRecord {   id: string;   expression: string;   inputIds: string[];   outputId: string;   outputUnit: string;   rounding: 'NONE'|'DISPLAY_ONLY'|'CEILING'|'FLOOR'; }  CalculationResult {   formulaId: string;   referenceIds: string[];   inputSnapshot: Record<string, number|string>;   value: number;   unit: string;   status: 'VALID'|'INPUT_REQUIRED'|'OUT_OF_RANGE'|'STANDARD_VALUE_NOT_DEFINED'|'EQUIPMENT_NOT_LISTED'|'HYDRAULIC_FAIL'; }
+11. CORE PSEUDOCODE
+function calculateTankCase(tank, scenario, profile):     validateRequiredInputs(tank, scenario, profile)     inputs = normalizeUnits(tank)     fuelClass = classifyFuel(inputs, profile.nfpa30)     designRecord = selectDesignRecord(inputs.roofType, inputs.roofConstruction,                                       inputs.sealType, scenario.method, fuelClass, profile)     if designRecord is null:         return ERROR('STANDARD_VALUE_NOT_DEFINED')      area = calculateProtectedArea(inputs, scenario, designRecord)     rate = designRecord.applicationRate     time = designRecord.dischargeTime     qSolution = area * rate      outletCount = selectOutletCount(inputs, scenario, designRecord)     qOutlet = qSolution / outletCount     validateOutletListing(qOutlet, inputs.outletListing)      qConc = qSolution * inputs.foamConcentration     vSolution = qSolution * time     vConc = qConc * time      cooling = calculateCooling(inputs, profile.nfpa15)     hydraulics = solveNetwork(inputs.network, qSolution, cooling.flow, scenario.otherDemands)     validateHydraulics(hydraulics, inputs.deviceListings)      return makeResult(area, qSolution, outletCount, qOutlet, qConc, vSolution,                       vConc, cooling, hydraulics)  function buildSiteCases(project):     cases = []     for tank in project.tanks:         for scenario in applicableScenarios(tank, project):             cases.append(calculateTankCase(tank, scenario, project.profile))     cases += buildDikeCases(project)     cases += buildExposureCases(project)     cases = combineSimultaneousDemands(cases, project.simultaneousDemandRule)     return cases  function selectWorstCase(cases):     pumpCase = argmax(cases, case => case.requiredPumpFlow)     storageCase = argmax(cases, case => case.totalWaterVolume)     return {pumpCase, storageCase}  function selectPump(pumpLibrary, duty):     candidates = filter(pumpLibrary, p => p.listed &&         p.compatible && curveCoversDuty(p.curve, duty.flow, duty.pressure))     if candidates.empty:         return ERROR('PUMP_SELECTION_FAILED')     return projectApprovedCandidate(candidates)  function calculateCooling(tank, nfpa15):     A_shell = PI * tank.D * tank.H_cooling     A_top = tank.topCoolingRequired ? PI*tank.D*tank.D/4 : 0     A = A_shell + A_top     R = nfpa15.vesselExposureDensity     Q = A * R     S_vertical = min(tank.nozzle.verticalSpacingListed,                      3.7 if tank.rundownCriterion else tank.nozzle.verticalSpacingListed)     if S_vertical is null:         return ERROR('INPUT_REQUIRED')     N_rings = max(1, ceil(tank.H_cooling / S_vertical))     S_circ = tank.nozzle.circumferentialSpacingListed     if S_circ is null:         return ERROR('INPUT_REQUIRED')     N_per_ring = max(1, ceil(PI*tank.D / S_circ))     return {A, R, Q, N_rings, N_per_ring}
+11.1 IMPLEMENTATION RULES
+Function
+| Deterministic Contract
+resolveDesignRecord(input)
+| Return exactly one reference record or STANDARD_VALUE_NOT_DEFINED.
+calculateScenario(project, tank, scenario)
+| Return CalculationResult with formula IDs, reference IDs, inputs, unit, status.
+solveHydraulics(network, demandCase)
+| Converge nodal continuity/energy equations or HYDRAULIC_BALANCE_FAIL.
+selectEquipment(duty, library)
+| Return all candidates passing listing, flow, pressure, temperature, material and compatibility checks; select per project rule.
+buildSimultaneousCases(project)
+| Generate only cases explicitly allowed by simultaneous-demand rules.
+selectWorstCase(cases)
+| Pump duty = MAX(valid case flow); storage duty = MAX(valid integrated volume).
+validateResult(result)
+| Reject missing reference IDs, missing inputs, unit mismatch, out-of-range values, unlisted equipment and failed hydraulic checks.
+12. SITE RING MAIN / MONITOR / HYDRANT LOGIC
+Function
+| Deterministic Rule
+Ring main segment flow
+| Q_segment = SUM(all active downstream demands) for a tree network; for loops, solve nodal continuity + energy equations.
+Ring main pressure
+| P_node = P_source − elevation loss − friction loss − minor losses; every required terminal node must satisfy minimum pressure.
+Diameter iteration
+| Evaluate candidate diameters from project pipe-size library; select smallest candidate that passes all scenario cases.
+Monitor flow
+| Use manufacturer/listed flow-pressure curve or K-factor; do not derive a universal flow from nozzle size name.
+Monitor count
+| Generate candidate positions, calculate coverage geometry, reject blind zones, then select minimum count satisfying coverage and access constraints.
+Hydrant count
+| Generate candidate locations from site access/coverage rules; verify simultaneous active hydrant demand in scenario hydraulic cases.
+Worst-case monitors
+| Use the project simultaneous-operation rule; do not assume all installed monitors operate simultaneously unless explicitly configured.
+Worst-case hydrants
+| Use the project simultaneous-operation rule; do not assume all installed hydrants flow simultaneously unless explicitly configured.
+13. VALIDATION & ERROR STATES
+Code
+| Meaning
+| Engine Action
+INPUT_REQUIRED
+| Mandatory engineering input missing
+| Stop affected calculation; request exact field
+INPUT_OUT_OF_RANGE
+| Input violates permitted range
+| Stop affected calculation
+STANDARD_VALUE_NOT_DEFINED
+| No applicable standard table value
+| Stop; do not infer value
+METHOD_NOT_PERMITTED
+| Selected method prohibited for condition
+| Stop scenario
+EQUIPMENT_NOT_LISTED
+| Equipment lacks required listing/approval
+| Reject equipment
+FLOW_OUT_OF_RANGE
+| Required device flow outside listing range
+| Reject equipment
+PRESSURE_OUT_OF_RANGE
+| Required device pressure outside listing range
+| Reject equipment
+VELOCITY_LIMIT_EXCEEDED
+| Velocity exceeds applicable limit
+| Reject hydraulic result
+HYDRAULIC_PRESSURE_FAIL
+| Terminal pressure not achieved
+| Resize network / equipment
+HYDRAULIC_BALANCE_FAIL
+| Network equations not converged
+| Stop case; hydraulic solver failure
+COVERAGE_FAIL
+| Monitor/hydrant coverage incomplete
+| Increase candidate equipment or change locations
+PUMP_SELECTION_FAILED
+| No project-approved pump meets duty
+| Stop equipment selection
+JOCKEY_BASIS_REQUIRED
+| No jockey design basis
+| Stop jockey selection
+14. PRECISION & ROUNDING
+INTERNAL_CALCULATION:     Keep IEEE-754 double precision (or Decimal for financial/reporting-grade deterministic replay).     Do not round intermediate values.  DISPLAY:     Flow: display precision defined by UI profile only.     Pressure: display precision defined by UI profile only.     Area/volume: display precision defined by UI profile only.  COUNT RULES:     Equipment count = CEILING(exact requirement).     Candidate pipe diameter = smallest library size passing all cases.     No intermediate CEILING unless explicitly specified by a formula record.  REPLAY:     Every result stores Formula ID + Reference IDs + input snapshot + standard profile ID.
+15. SCENARIO-SPECIFIC FORMULA CHAINS
+Case
+| Dependency Chain
+Fixed Roof / Surface
+| D,H,FP,T_storage → Fuel class → NF11 rate/time → A_liquid → Q_solution → N_outlets → Q_outlet → V_solution → V_conc → Hydraulics
+Fixed Roof / Subsurface
+| D,FP,BP,T_storage → Eligibility → NF11 subsurface N/rate/time → A_liquid → Q_solution → velocity/back-pressure validation → concentrate → hydraulics
+External Floating / Top-of-Seal
+| D,D_dam,seal type → W,D_mean,A_annulus → dam height validation → NF11 rate/time/spacing → Q_solution → outlet count → concentrate → hydraulics
+External Floating / Below-Seal
+| D,seal configuration → NF11 below-seal rate/time/spacing → seal protection area → Q_solution → outlet count → equipment/listing → hydraulics
+Internal Floating / Seal Fire
+| D,roof construction → seal-only eligibility → map to open-top floating-roof seal rules → annular area → foam flow → hydraulics
+Internal Floating / Full Surface
+| D,roof construction → full-surface requirement → map to fixed-roof same-diameter rules → liquid area → foam flow → hydraulics
+External Floating / Sunken Roof
+| D → full surface area → MANUAL_ENGINEERING_BASIS required → portable/mobile foam resources → water/concentrate/logistics check
+Dike / Bund Fire
+| Dike polygon + tank footprints → net protected spill area → NF11 dike rate/time → foam flow → concentrate → monitor/outlet coverage → hydraulics
+Tank Rupture
+| Rupture/spill scenario + containment geometry → defined spill area → applicable dike/nondiked rule → combined cooling + foam demand
+Site Worst Case
+| All scenario cases → simultaneous demand combinations → hydraulic solve → max pump duty + max storage consumption + equipment constraints
+16. STANDARD REFERENCE MAP
+Standard
+| Application in Engine
+NFPA 11-2024
+| Foam tank protection methods, application rates/times, outlet counts, floating-roof seal protection, foam dams, dike/spill foam protection, supplementary foam hose streams.
+NFPA 15-2022 (locked project profile unless explicitly changed)
+| Water spray exposure protection; vessel cooling density and nozzle coverage constraints.
+NFPA 30-2024
+| Flammable/combustible liquid classification and storage context.
+NFPA 20 — project-selected edition
+| Fire pump equipment, pump performance, installation and acceptance constraints.
+NFPA 22 — project-selected edition
+| Fire water storage tank requirements.
+NFPA 24 — project-selected edition
+| Private fire service mains, hydrants, hydraulic calculations and main-system requirements.
+Manufacturer Listing / Approval
+| Foam concentrate compatibility, proportioner ranges, foam discharge device performance, nozzle coverage, monitor curves, pump curves.
+API 650 / project tank standard where applicable
+| Internal floating roof construction/performance inputs and tank geometry data.
+17. NON-NEGOTIABLE ENGINE RULES
+1. No invented numeric values. 2. No implicit defaults for engineering inputs. 3. No alternative formula outside the Formula Repository. 4. No standard-value lookup by fuel name alone. 5. No intermediate rounding. 6. No equal flow split for hydraulic loops. 7. No equipment acceptance without listing/approval and operating-range validation. 8. No universal cooling nozzle spacing without manufacturer/listed coverage data. 9. No universal monitor count or hydrant count without site coverage/access criteria. 10. Worst-case pump flow and worst-case storage volume are selected independently. 11. External floating-roof sunken/full-surface protection shall not receive a fabricated fixed-system rate/time. 12. Every result stores Formula ID, Reference Table ID(s), standard profile, inputs and validation status. 13. If a standard table is not applicable to the selected fuel/roof/scenario, return METHOD_NOT_PERMITTED or STANDARD_VALUE_NOT_DEFINED. 14. UI labels shall display source IDs for traceability. 15. Any manual engineering override shall be explicitly stored, versioned and marked MANUAL_OVERRIDE.
+
+REFERENCE LOCK: NFPA 11-2024 | NFPA 15-2022 | NFPA 30-2024 | Project-selected NFPA 20/22/24 editions
