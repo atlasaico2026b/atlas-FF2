@@ -28976,9 +28976,24 @@ const Label = reactExports.forwardRef(
   )
 );
 
+const BASE = "/p/dd8f6ca5-46fd-42ed-b5e6-55cc218a9794/";
+function assetUrl$1(path) {
+  const clean = path.replace(/^\/+/, "");
+  const base = BASE.endsWith("/") ? BASE : `${BASE}/`;
+  const relative = `${base}${clean}`;
+  if (typeof document !== "undefined") {
+    try {
+      return new URL(relative, document.baseURI).href;
+    } catch {
+    }
+  }
+  return relative;
+}
+
 function iconSvg(pngPath) {
+  const href = assetUrl$1(pngPath);
   return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
-    <image href="${pngPath}" x="0" y="0" width="100" height="100" preserveAspectRatio="xMidYMid meet"/>
+    <image href="${href}" x="0" y="0" width="100" height="100" preserveAspectRatio="xMidYMid meet"/>
   </svg>`;
 }
 const EQUIPMENT_SVG = {
@@ -32212,7 +32227,7 @@ function pointIconIds() {
 }
 function pointIconUrl(id) {
   const sprite = SPRITES[id];
-  return sprite ? `${POINT_ICON_DIR}/${sprite.file}` : null;
+  return sprite ? assetUrl$1(`${POINT_ICON_DIR}/${sprite.file}`) : null;
 }
 function pointIconRect(id, box) {
   const aspect = SPRITES[id]?.aspect ?? 1;
@@ -33967,7 +33982,7 @@ function TopToolbar({
         title: "انتخاب — فقط انتخاب آیتم‌ها",
         children: /* @__PURE__ */ jsxDevRuntimeExports.jsxDEV(MousePointer2, { className: "w-5 h-5" }, void 0, false, {
           fileName: "/app/workspace/dd8f6ca5-46fd-42ed-b5e6-55cc218a9794/src/components/TopToolbar.tsx",
-          lineNumber: 111,
+          lineNumber: 112,
           columnNumber: 9
         }, this)
       },
@@ -33975,7 +33990,7 @@ function TopToolbar({
       false,
       {
         fileName: "/app/workspace/dd8f6ca5-46fd-42ed-b5e6-55cc218a9794/src/components/TopToolbar.tsx",
-        lineNumber: 102,
+        lineNumber: 103,
         columnNumber: 7
       },
       this
@@ -33991,7 +34006,7 @@ function TopToolbar({
         title: "افزودن — کلیک کنید تا تجهیز اضافه شود",
         children: /* @__PURE__ */ jsxDevRuntimeExports.jsxDEV(Plus, { className: "w-5 h-5" }, void 0, false, {
           fileName: "/app/workspace/dd8f6ca5-46fd-42ed-b5e6-55cc218a9794/src/components/TopToolbar.tsx",
-          lineNumber: 124,
+          lineNumber: 125,
           columnNumber: 9
         }, this)
       },
@@ -33999,7 +34014,7 @@ function TopToolbar({
       false,
       {
         fileName: "/app/workspace/dd8f6ca5-46fd-42ed-b5e6-55cc218a9794/src/components/TopToolbar.tsx",
-        lineNumber: 115,
+        lineNumber: 116,
         columnNumber: 7
       },
       this
@@ -34015,7 +34030,7 @@ function TopToolbar({
         title: "جابجایی — کلیک و درگ کنید",
         children: /* @__PURE__ */ jsxDevRuntimeExports.jsxDEV(Move, { className: "w-5 h-5" }, void 0, false, {
           fileName: "/app/workspace/dd8f6ca5-46fd-42ed-b5e6-55cc218a9794/src/components/TopToolbar.tsx",
-          lineNumber: 137,
+          lineNumber: 138,
           columnNumber: 9
         }, this)
       },
@@ -34023,7 +34038,7 @@ function TopToolbar({
       false,
       {
         fileName: "/app/workspace/dd8f6ca5-46fd-42ed-b5e6-55cc218a9794/src/components/TopToolbar.tsx",
-        lineNumber: 128,
+        lineNumber: 129,
         columnNumber: 7
       },
       this
@@ -34039,7 +34054,7 @@ function TopToolbar({
         title: "ویرایش — آیتم انتخابی را ویرایش کنید",
         children: /* @__PURE__ */ jsxDevRuntimeExports.jsxDEV(PenTool, { className: "w-5 h-5" }, void 0, false, {
           fileName: "/app/workspace/dd8f6ca5-46fd-42ed-b5e6-55cc218a9794/src/components/TopToolbar.tsx",
-          lineNumber: 150,
+          lineNumber: 151,
           columnNumber: 9
         }, this)
       },
@@ -34047,7 +34062,7 @@ function TopToolbar({
       false,
       {
         fileName: "/app/workspace/dd8f6ca5-46fd-42ed-b5e6-55cc218a9794/src/components/TopToolbar.tsx",
-        lineNumber: 141,
+        lineNumber: 142,
         columnNumber: 7
       },
       this
@@ -34063,7 +34078,7 @@ function TopToolbar({
         title: "تغییر اندازه",
         children: /* @__PURE__ */ jsxDevRuntimeExports.jsxDEV(Maximize2, { className: "w-5 h-5" }, void 0, false, {
           fileName: "/app/workspace/dd8f6ca5-46fd-42ed-b5e6-55cc218a9794/src/components/TopToolbar.tsx",
-          lineNumber: 163,
+          lineNumber: 164,
           columnNumber: 9
         }, this)
       },
@@ -34071,7 +34086,7 @@ function TopToolbar({
       false,
       {
         fileName: "/app/workspace/dd8f6ca5-46fd-42ed-b5e6-55cc218a9794/src/components/TopToolbar.tsx",
-        lineNumber: 154,
+        lineNumber: 155,
         columnNumber: 7
       },
       this
@@ -34088,7 +34103,7 @@ function TopToolbar({
         title: "حذف",
         children: /* @__PURE__ */ jsxDevRuntimeExports.jsxDEV(Trash2, { className: "w-5 h-5" }, void 0, false, {
           fileName: "/app/workspace/dd8f6ca5-46fd-42ed-b5e6-55cc218a9794/src/components/TopToolbar.tsx",
-          lineNumber: 177,
+          lineNumber: 178,
           columnNumber: 9
         }, this)
       },
@@ -34096,14 +34111,14 @@ function TopToolbar({
       false,
       {
         fileName: "/app/workspace/dd8f6ca5-46fd-42ed-b5e6-55cc218a9794/src/components/TopToolbar.tsx",
-        lineNumber: 167,
+        lineNumber: 168,
         columnNumber: 7
       },
       this
     ),
     /* @__PURE__ */ jsxDevRuntimeExports.jsxDEV("div", { className: "w-px h-6 bg-gray-200 mx-1" }, void 0, false, {
       fileName: "/app/workspace/dd8f6ca5-46fd-42ed-b5e6-55cc218a9794/src/components/TopToolbar.tsx",
-      lineNumber: 180,
+      lineNumber: 181,
       columnNumber: 7
     }, this),
     /* @__PURE__ */ jsxDevRuntimeExports.jsxDEV("div", { className: "relative", ref: drawMenuRef, children: [
@@ -34116,12 +34131,12 @@ function TopToolbar({
           children: [
             /* @__PURE__ */ jsxDevRuntimeExports.jsxDEV(Pencil, { className: "w-5 h-5" }, void 0, false, {
               fileName: "/app/workspace/dd8f6ca5-46fd-42ed-b5e6-55cc218a9794/src/components/TopToolbar.tsx",
-              lineNumber: 193,
+              lineNumber: 194,
               columnNumber: 11
             }, this),
             /* @__PURE__ */ jsxDevRuntimeExports.jsxDEV(ChevronDown, { className: "w-3 h-3" }, void 0, false, {
               fileName: "/app/workspace/dd8f6ca5-46fd-42ed-b5e6-55cc218a9794/src/components/TopToolbar.tsx",
-              lineNumber: 194,
+              lineNumber: 195,
               columnNumber: 11
             }, this)
           ]
@@ -34130,7 +34145,7 @@ function TopToolbar({
         true,
         {
           fileName: "/app/workspace/dd8f6ca5-46fd-42ed-b5e6-55cc218a9794/src/components/TopToolbar.tsx",
-          lineNumber: 184,
+          lineNumber: 185,
           columnNumber: 9
         },
         this
@@ -34138,7 +34153,7 @@ function TopToolbar({
       showDrawMenu && /* @__PURE__ */ jsxDevRuntimeExports.jsxDEV("div", { className: "absolute top-full right-0 mt-2 bg-white rounded-xl shadow-xl border border-gray-200 p-2 min-w-[200px] z-50", children: [
         /* @__PURE__ */ jsxDevRuntimeExports.jsxDEV("div", { className: "text-[10px] text-gray-400 font-bold px-2 py-1 uppercase", children: "نوع رسم" }, void 0, false, {
           fileName: "/app/workspace/dd8f6ca5-46fd-42ed-b5e6-55cc218a9794/src/components/TopToolbar.tsx",
-          lineNumber: 199,
+          lineNumber: 200,
           columnNumber: 13
         }, this),
         /* @__PURE__ */ jsxDevRuntimeExports.jsxDEV("div", { className: "relative", ref: pipeMenuRef, children: [
@@ -34148,15 +34163,15 @@ function TopToolbar({
               onClick: () => handleDrawShapeSelect("pipe"),
               className: `w-full flex items-center gap-2 px-3 py-2 rounded-lg text-sm hover:bg-gray-50 transition ${drawShapeType === "pipe" ? "bg-sky-50 text-sky-700" : "text-gray-700"}`,
               children: [
-                /* @__PURE__ */ jsxDevRuntimeExports.jsxDEV("img", { src: "/equipment-icons/pipe.png", alt: "لوله", className: "w-6 h-6 object-contain" }, void 0, false, {
+                /* @__PURE__ */ jsxDevRuntimeExports.jsxDEV("img", { src: assetUrl$1("/equipment-icons/pipe.png"), alt: "لوله", className: "w-6 h-6 object-contain" }, void 0, false, {
                   fileName: "/app/workspace/dd8f6ca5-46fd-42ed-b5e6-55cc218a9794/src/components/TopToolbar.tsx",
-                  lineNumber: 209,
+                  lineNumber: 210,
                   columnNumber: 17
                 }, this),
                 "رسم لوله",
                 /* @__PURE__ */ jsxDevRuntimeExports.jsxDEV(ChevronDown, { className: "w-3 h-3 mr-auto" }, void 0, false, {
                   fileName: "/app/workspace/dd8f6ca5-46fd-42ed-b5e6-55cc218a9794/src/components/TopToolbar.tsx",
-                  lineNumber: 211,
+                  lineNumber: 212,
                   columnNumber: 17
                 }, this)
               ]
@@ -34165,7 +34180,7 @@ function TopToolbar({
             true,
             {
               fileName: "/app/workspace/dd8f6ca5-46fd-42ed-b5e6-55cc218a9794/src/components/TopToolbar.tsx",
-              lineNumber: 203,
+              lineNumber: 204,
               columnNumber: 15
             },
             this
@@ -34173,7 +34188,7 @@ function TopToolbar({
           showPipeMenu && /* @__PURE__ */ jsxDevRuntimeExports.jsxDEV("div", { className: "absolute right-full top-0 mr-2 bg-white rounded-xl shadow-xl border border-gray-200 p-2 min-w-[220px]", children: [
             /* @__PURE__ */ jsxDevRuntimeExports.jsxDEV("div", { className: "text-[10px] text-gray-400 font-bold px-2 py-1 uppercase", children: "نوع لوله" }, void 0, false, {
               fileName: "/app/workspace/dd8f6ca5-46fd-42ed-b5e6-55cc218a9794/src/components/TopToolbar.tsx",
-              lineNumber: 215,
+              lineNumber: 216,
               columnNumber: 19
             }, this),
             DRAW_PIPE_TYPES.map((pt) => /* @__PURE__ */ jsxDevRuntimeExports.jsxDEV(
@@ -34184,17 +34199,17 @@ function TopToolbar({
                 children: [
                   /* @__PURE__ */ jsxDevRuntimeExports.jsxDEV("div", { className: "w-3 h-3 rounded-full", style: { backgroundColor: pt.color } }, void 0, false, {
                     fileName: "/app/workspace/dd8f6ca5-46fd-42ed-b5e6-55cc218a9794/src/components/TopToolbar.tsx",
-                    lineNumber: 224,
+                    lineNumber: 225,
                     columnNumber: 23
                   }, this),
                   /* @__PURE__ */ jsxDevRuntimeExports.jsxDEV("span", { children: pt.icon }, void 0, false, {
                     fileName: "/app/workspace/dd8f6ca5-46fd-42ed-b5e6-55cc218a9794/src/components/TopToolbar.tsx",
-                    lineNumber: 225,
+                    lineNumber: 226,
                     columnNumber: 23
                   }, this),
                   /* @__PURE__ */ jsxDevRuntimeExports.jsxDEV("span", { children: pt.label }, void 0, false, {
                     fileName: "/app/workspace/dd8f6ca5-46fd-42ed-b5e6-55cc218a9794/src/components/TopToolbar.tsx",
-                    lineNumber: 226,
+                    lineNumber: 227,
                     columnNumber: 23
                   }, this)
                 ]
@@ -34203,19 +34218,19 @@ function TopToolbar({
               true,
               {
                 fileName: "/app/workspace/dd8f6ca5-46fd-42ed-b5e6-55cc218a9794/src/components/TopToolbar.tsx",
-                lineNumber: 217,
+                lineNumber: 218,
                 columnNumber: 21
               },
               this
             ))
           ] }, void 0, true, {
             fileName: "/app/workspace/dd8f6ca5-46fd-42ed-b5e6-55cc218a9794/src/components/TopToolbar.tsx",
-            lineNumber: 214,
+            lineNumber: 215,
             columnNumber: 17
           }, this)
         ] }, void 0, true, {
           fileName: "/app/workspace/dd8f6ca5-46fd-42ed-b5e6-55cc218a9794/src/components/TopToolbar.tsx",
-          lineNumber: 202,
+          lineNumber: 203,
           columnNumber: 13
         }, this),
         /* @__PURE__ */ jsxDevRuntimeExports.jsxDEV(
@@ -34224,9 +34239,9 @@ function TopToolbar({
             onClick: () => handleDrawShapeSelect("road"),
             className: `w-full flex items-center gap-2 px-3 py-2 rounded-lg text-sm hover:bg-gray-50 transition ${drawShapeType === "road" ? "bg-gray-200 text-gray-800" : "text-gray-700"}`,
             children: [
-              /* @__PURE__ */ jsxDevRuntimeExports.jsxDEV("img", { src: "/equipment-icons/road.png", alt: "جاده", className: "w-6 h-6 object-contain" }, void 0, false, {
+              /* @__PURE__ */ jsxDevRuntimeExports.jsxDEV("img", { src: assetUrl$1("/equipment-icons/road.png"), alt: "جاده", className: "w-6 h-6 object-contain" }, void 0, false, {
                 fileName: "/app/workspace/dd8f6ca5-46fd-42ed-b5e6-55cc218a9794/src/components/TopToolbar.tsx",
-                lineNumber: 240,
+                lineNumber: 241,
                 columnNumber: 15
               }, this),
               "رسم جاده"
@@ -34236,24 +34251,24 @@ function TopToolbar({
           true,
           {
             fileName: "/app/workspace/dd8f6ca5-46fd-42ed-b5e6-55cc218a9794/src/components/TopToolbar.tsx",
-            lineNumber: 234,
+            lineNumber: 235,
             columnNumber: 13
           },
           this
         )
       ] }, void 0, true, {
         fileName: "/app/workspace/dd8f6ca5-46fd-42ed-b5e6-55cc218a9794/src/components/TopToolbar.tsx",
-        lineNumber: 198,
+        lineNumber: 199,
         columnNumber: 11
       }, this)
     ] }, void 0, true, {
       fileName: "/app/workspace/dd8f6ca5-46fd-42ed-b5e6-55cc218a9794/src/components/TopToolbar.tsx",
-      lineNumber: 183,
+      lineNumber: 184,
       columnNumber: 7
     }, this),
     /* @__PURE__ */ jsxDevRuntimeExports.jsxDEV("div", { className: "w-px h-6 bg-gray-200 mx-1" }, void 0, false, {
       fileName: "/app/workspace/dd8f6ca5-46fd-42ed-b5e6-55cc218a9794/src/components/TopToolbar.tsx",
-      lineNumber: 247,
+      lineNumber: 248,
       columnNumber: 7
     }, this),
     /* @__PURE__ */ jsxDevRuntimeExports.jsxDEV(
@@ -34267,7 +34282,7 @@ function TopToolbar({
         title: "نقطه (Point) — روی لوله کلیک کنید تا گره ایجاد شود",
         children: /* @__PURE__ */ jsxDevRuntimeExports.jsxDEV(MapPin, { className: "w-5 h-5" }, void 0, false, {
           fileName: "/app/workspace/dd8f6ca5-46fd-42ed-b5e6-55cc218a9794/src/components/TopToolbar.tsx",
-          lineNumber: 259,
+          lineNumber: 260,
           columnNumber: 9
         }, this)
       },
@@ -34275,14 +34290,14 @@ function TopToolbar({
       false,
       {
         fileName: "/app/workspace/dd8f6ca5-46fd-42ed-b5e6-55cc218a9794/src/components/TopToolbar.tsx",
-        lineNumber: 250,
+        lineNumber: 251,
         columnNumber: 7
       },
       this
     ),
     /* @__PURE__ */ jsxDevRuntimeExports.jsxDEV("div", { className: "w-px h-6 bg-gray-200 mx-1" }, void 0, false, {
       fileName: "/app/workspace/dd8f6ca5-46fd-42ed-b5e6-55cc218a9794/src/components/TopToolbar.tsx",
-      lineNumber: 262,
+      lineNumber: 263,
       columnNumber: 7
     }, this),
     /* @__PURE__ */ jsxDevRuntimeExports.jsxDEV(
@@ -34296,7 +34311,7 @@ function TopToolbar({
         title: "حرکت صفحه",
         children: /* @__PURE__ */ jsxDevRuntimeExports.jsxDEV(Hand, { className: "w-5 h-5" }, void 0, false, {
           fileName: "/app/workspace/dd8f6ca5-46fd-42ed-b5e6-55cc218a9794/src/components/TopToolbar.tsx",
-          lineNumber: 274,
+          lineNumber: 275,
           columnNumber: 9
         }, this)
       },
@@ -34304,7 +34319,7 @@ function TopToolbar({
       false,
       {
         fileName: "/app/workspace/dd8f6ca5-46fd-42ed-b5e6-55cc218a9794/src/components/TopToolbar.tsx",
-        lineNumber: 265,
+        lineNumber: 266,
         columnNumber: 7
       },
       this
@@ -34312,7 +34327,7 @@ function TopToolbar({
     activeTool === "draw" && (drawShapeType === "pipe" || drawShapeType === "") && /* @__PURE__ */ jsxDevRuntimeExports.jsxDEV("div", { className: "flex items-center gap-1 bg-gray-100 rounded-lg px-2 py-1", children: [
       /* @__PURE__ */ jsxDevRuntimeExports.jsxDEV("span", { className: "text-[10px] text-gray-500 font-medium", children: "سایز:" }, void 0, false, {
         fileName: "/app/workspace/dd8f6ca5-46fd-42ed-b5e6-55cc218a9794/src/components/TopToolbar.tsx",
-        lineNumber: 280,
+        lineNumber: 281,
         columnNumber: 11
       }, this),
       /* @__PURE__ */ jsxDevRuntimeExports.jsxDEV(
@@ -34323,7 +34338,7 @@ function TopToolbar({
           className: "text-xs bg-white border border-gray-200 rounded px-1.5 py-0.5 text-gray-700 focus:outline-none focus:ring-1 focus:ring-sky-400",
           children: PIPE_SIZE_OPTIONS.map((s) => /* @__PURE__ */ jsxDevRuntimeExports.jsxDEV("option", { value: s, children: s }, s, false, {
             fileName: "/app/workspace/dd8f6ca5-46fd-42ed-b5e6-55cc218a9794/src/components/TopToolbar.tsx",
-            lineNumber: 287,
+            lineNumber: 288,
             columnNumber: 15
           }, this))
         },
@@ -34331,14 +34346,14 @@ function TopToolbar({
         false,
         {
           fileName: "/app/workspace/dd8f6ca5-46fd-42ed-b5e6-55cc218a9794/src/components/TopToolbar.tsx",
-          lineNumber: 281,
+          lineNumber: 282,
           columnNumber: 11
         },
         this
       )
     ] }, void 0, true, {
       fileName: "/app/workspace/dd8f6ca5-46fd-42ed-b5e6-55cc218a9794/src/components/TopToolbar.tsx",
-      lineNumber: 279,
+      lineNumber: 280,
       columnNumber: 9
     }, this),
     activeTool === "draw" && /* @__PURE__ */ jsxDevRuntimeExports.jsxDEV("div", { className: "flex flex-col gap-1 bg-gray-100 rounded-lg px-2 py-1", children: [
@@ -34353,7 +34368,7 @@ function TopToolbar({
           false,
           {
             fileName: "/app/workspace/dd8f6ca5-46fd-42ed-b5e6-55cc218a9794/src/components/TopToolbar.tsx",
-            lineNumber: 297,
+            lineNumber: 298,
             columnNumber: 13
           },
           this
@@ -34361,7 +34376,7 @@ function TopToolbar({
         "نمایش نام جاده"
       ] }, void 0, true, {
         fileName: "/app/workspace/dd8f6ca5-46fd-42ed-b5e6-55cc218a9794/src/components/TopToolbar.tsx",
-        lineNumber: 296,
+        lineNumber: 297,
         columnNumber: 11
       }, this),
       /* @__PURE__ */ jsxDevRuntimeExports.jsxDEV("label", { className: "flex items-center gap-2 text-[10px] text-gray-600", children: [
@@ -34375,7 +34390,7 @@ function TopToolbar({
           false,
           {
             fileName: "/app/workspace/dd8f6ca5-46fd-42ed-b5e6-55cc218a9794/src/components/TopToolbar.tsx",
-            lineNumber: 304,
+            lineNumber: 305,
             columnNumber: 13
           },
           this
@@ -34383,7 +34398,7 @@ function TopToolbar({
         "نمایش نام لوله"
       ] }, void 0, true, {
         fileName: "/app/workspace/dd8f6ca5-46fd-42ed-b5e6-55cc218a9794/src/components/TopToolbar.tsx",
-        lineNumber: 303,
+        lineNumber: 304,
         columnNumber: 11
       }, this),
       /* @__PURE__ */ jsxDevRuntimeExports.jsxDEV("label", { className: "flex items-center gap-2 text-[10px] text-gray-600", children: [
@@ -34397,7 +34412,7 @@ function TopToolbar({
           false,
           {
             fileName: "/app/workspace/dd8f6ca5-46fd-42ed-b5e6-55cc218a9794/src/components/TopToolbar.tsx",
-            lineNumber: 311,
+            lineNumber: 312,
             columnNumber: 13
           },
           this
@@ -34405,18 +34420,18 @@ function TopToolbar({
         "نمایش سایز لوله"
       ] }, void 0, true, {
         fileName: "/app/workspace/dd8f6ca5-46fd-42ed-b5e6-55cc218a9794/src/components/TopToolbar.tsx",
-        lineNumber: 310,
+        lineNumber: 311,
         columnNumber: 11
       }, this)
     ] }, void 0, true, {
       fileName: "/app/workspace/dd8f6ca5-46fd-42ed-b5e6-55cc218a9794/src/components/TopToolbar.tsx",
-      lineNumber: 295,
+      lineNumber: 296,
       columnNumber: 9
     }, this),
     activeTool === "draw" && /* @__PURE__ */ jsxDevRuntimeExports.jsxDEV(jsxDevRuntimeExports.Fragment, { children: [
       /* @__PURE__ */ jsxDevRuntimeExports.jsxDEV("div", { className: "w-px h-6 bg-gray-200 mx-1" }, void 0, false, {
         fileName: "/app/workspace/dd8f6ca5-46fd-42ed-b5e6-55cc218a9794/src/components/TopToolbar.tsx",
-        lineNumber: 323,
+        lineNumber: 324,
         columnNumber: 11
       }, this),
       /* @__PURE__ */ jsxDevRuntimeExports.jsxDEV(
@@ -34431,7 +34446,7 @@ function TopToolbar({
         false,
         {
           fileName: "/app/workspace/dd8f6ca5-46fd-42ed-b5e6-55cc218a9794/src/components/TopToolbar.tsx",
-          lineNumber: 324,
+          lineNumber: 325,
           columnNumber: 11
         },
         this
@@ -34448,19 +34463,19 @@ function TopToolbar({
         false,
         {
           fileName: "/app/workspace/dd8f6ca5-46fd-42ed-b5e6-55cc218a9794/src/components/TopToolbar.tsx",
-          lineNumber: 335,
+          lineNumber: 336,
           columnNumber: 11
         },
         this
       )
     ] }, void 0, true, {
       fileName: "/app/workspace/dd8f6ca5-46fd-42ed-b5e6-55cc218a9794/src/components/TopToolbar.tsx",
-      lineNumber: 322,
+      lineNumber: 323,
       columnNumber: 9
     }, this)
   ] }, void 0, true, {
     fileName: "/app/workspace/dd8f6ca5-46fd-42ed-b5e6-55cc218a9794/src/components/TopToolbar.tsx",
-    lineNumber: 100,
+    lineNumber: 101,
     columnNumber: 5
   }, this);
 }
@@ -34532,11 +34547,11 @@ function LeftToolbar({ activeTool, onToolChange, phase, onAddTypeChange, selecte
       phase === "checklist" ? "جانمایی" : phase === "roads" ? "جاده و لوله" : phase === "design" ? "طراحی" : "عمومی"
     ] }, void 0, true, {
       fileName: "/app/workspace/dd8f6ca5-46fd-42ed-b5e6-55cc218a9794/src/components/LeftToolbar.tsx",
-      lineNumber: 91,
+      lineNumber: 92,
       columnNumber: 11
     }, this) }, void 0, false, {
       fileName: "/app/workspace/dd8f6ca5-46fd-42ed-b5e6-55cc218a9794/src/components/LeftToolbar.tsx",
-      lineNumber: 90,
+      lineNumber: 91,
       columnNumber: 9
     }, this),
     /* @__PURE__ */ jsxDevRuntimeExports.jsxDEV(
@@ -34547,11 +34562,11 @@ function LeftToolbar({ activeTool, onToolChange, phase, onAddTypeChange, selecte
         children: [
           showAll ? /* @__PURE__ */ jsxDevRuntimeExports.jsxDEV(EyeOff, { className: "w-3 h-3" }, void 0, false, {
             fileName: "/app/workspace/dd8f6ca5-46fd-42ed-b5e6-55cc218a9794/src/components/LeftToolbar.tsx",
-            lineNumber: 106,
+            lineNumber: 107,
             columnNumber: 22
           }, this) : /* @__PURE__ */ jsxDevRuntimeExports.jsxDEV(Eye, { className: "w-3 h-3" }, void 0, false, {
             fileName: "/app/workspace/dd8f6ca5-46fd-42ed-b5e6-55cc218a9794/src/components/LeftToolbar.tsx",
-            lineNumber: 106,
+            lineNumber: 107,
             columnNumber: 55
           }, this),
           showAll ? "فقط ابزارهای این مرحله" : "نمایش همه ابزارها"
@@ -34561,7 +34576,7 @@ function LeftToolbar({ activeTool, onToolChange, phase, onAddTypeChange, selecte
       true,
       {
         fileName: "/app/workspace/dd8f6ca5-46fd-42ed-b5e6-55cc218a9794/src/components/LeftToolbar.tsx",
-        lineNumber: 102,
+        lineNumber: 103,
         columnNumber: 9
       },
       this
@@ -34577,27 +34592,27 @@ function LeftToolbar({ activeTool, onToolChange, phase, onAddTypeChange, selecte
             children: [
               /* @__PURE__ */ jsxDevRuntimeExports.jsxDEV("span", { children: group.label }, void 0, false, {
                 fileName: "/app/workspace/dd8f6ca5-46fd-42ed-b5e6-55cc218a9794/src/components/LeftToolbar.tsx",
-                lineNumber: 119,
+                lineNumber: 120,
                 columnNumber: 19
               }, this),
               /* @__PURE__ */ jsxDevRuntimeExports.jsxDEV("div", { className: "flex items-center gap-1", children: [
                 /* @__PURE__ */ jsxDevRuntimeExports.jsxDEV("span", { className: "text-[9px] text-gray-300", children: group.items.length }, void 0, false, {
                   fileName: "/app/workspace/dd8f6ca5-46fd-42ed-b5e6-55cc218a9794/src/components/LeftToolbar.tsx",
-                  lineNumber: 121,
+                  lineNumber: 122,
                   columnNumber: 21
                 }, this),
                 isCollapsed ? /* @__PURE__ */ jsxDevRuntimeExports.jsxDEV(ChevronDown, { className: "w-3 h-3" }, void 0, false, {
                   fileName: "/app/workspace/dd8f6ca5-46fd-42ed-b5e6-55cc218a9794/src/components/LeftToolbar.tsx",
-                  lineNumber: 122,
+                  lineNumber: 123,
                   columnNumber: 36
                 }, this) : /* @__PURE__ */ jsxDevRuntimeExports.jsxDEV(ChevronUp, { className: "w-3 h-3" }, void 0, false, {
                   fileName: "/app/workspace/dd8f6ca5-46fd-42ed-b5e6-55cc218a9794/src/components/LeftToolbar.tsx",
-                  lineNumber: 122,
+                  lineNumber: 123,
                   columnNumber: 74
                 }, this)
               ] }, void 0, true, {
                 fileName: "/app/workspace/dd8f6ca5-46fd-42ed-b5e6-55cc218a9794/src/components/LeftToolbar.tsx",
-                lineNumber: 120,
+                lineNumber: 121,
                 columnNumber: 19
               }, this)
             ]
@@ -34606,7 +34621,7 @@ function LeftToolbar({ activeTool, onToolChange, phase, onAddTypeChange, selecte
           true,
           {
             fileName: "/app/workspace/dd8f6ca5-46fd-42ed-b5e6-55cc218a9794/src/components/LeftToolbar.tsx",
-            lineNumber: 115,
+            lineNumber: 116,
             columnNumber: 17
           },
           this
@@ -34635,7 +34650,7 @@ function LeftToolbar({ activeTool, onToolChange, phase, onAddTypeChange, selecte
                     children: /* @__PURE__ */ jsxDevRuntimeExports.jsxDEV(
                       "img",
                       {
-                        src: item.iconPath,
+                        src: assetUrl$1(item.iconPath),
                         alt: item.label,
                         className: "w-full h-full object-contain",
                         onError: (e) => {
@@ -34646,7 +34661,7 @@ function LeftToolbar({ activeTool, onToolChange, phase, onAddTypeChange, selecte
                       false,
                       {
                         fileName: "/app/workspace/dd8f6ca5-46fd-42ed-b5e6-55cc218a9794/src/components/LeftToolbar.tsx",
-                        lineNumber: 153,
+                        lineNumber: 154,
                         columnNumber: 29
                       },
                       this
@@ -34656,14 +34671,14 @@ function LeftToolbar({ activeTool, onToolChange, phase, onAddTypeChange, selecte
                   false,
                   {
                     fileName: "/app/workspace/dd8f6ca5-46fd-42ed-b5e6-55cc218a9794/src/components/LeftToolbar.tsx",
-                    lineNumber: 150,
+                    lineNumber: 151,
                     columnNumber: 27
                   },
                   this
                 ),
                 /* @__PURE__ */ jsxDevRuntimeExports.jsxDEV("span", { className: `text-[11px] leading-tight truncate flex-1 ${isActive ? "text-sky-700 font-medium" : "text-gray-600"}`, children: item.label }, void 0, false, {
                   fileName: "/app/workspace/dd8f6ca5-46fd-42ed-b5e6-55cc218a9794/src/components/LeftToolbar.tsx",
-                  lineNumber: 162,
+                  lineNumber: 163,
                   columnNumber: 27
                 }, this)
               ]
@@ -34672,33 +34687,33 @@ function LeftToolbar({ activeTool, onToolChange, phase, onAddTypeChange, selecte
             true,
             {
               fileName: "/app/workspace/dd8f6ca5-46fd-42ed-b5e6-55cc218a9794/src/components/LeftToolbar.tsx",
-              lineNumber: 132,
+              lineNumber: 133,
               columnNumber: 25
             },
             this
           );
         }) }, void 0, false, {
           fileName: "/app/workspace/dd8f6ca5-46fd-42ed-b5e6-55cc218a9794/src/components/LeftToolbar.tsx",
-          lineNumber: 126,
+          lineNumber: 127,
           columnNumber: 19
         }, this)
       ] }, group.label, true, {
         fileName: "/app/workspace/dd8f6ca5-46fd-42ed-b5e6-55cc218a9794/src/components/LeftToolbar.tsx",
-        lineNumber: 114,
+        lineNumber: 115,
         columnNumber: 15
       }, this);
     }) }, void 0, false, {
       fileName: "/app/workspace/dd8f6ca5-46fd-42ed-b5e6-55cc218a9794/src/components/LeftToolbar.tsx",
-      lineNumber: 110,
+      lineNumber: 111,
       columnNumber: 9
     }, this)
   ] }, void 0, true, {
     fileName: "/app/workspace/dd8f6ca5-46fd-42ed-b5e6-55cc218a9794/src/components/LeftToolbar.tsx",
-    lineNumber: 88,
+    lineNumber: 89,
     columnNumber: 7
   }, this) }, void 0, false, {
     fileName: "/app/workspace/dd8f6ca5-46fd-42ed-b5e6-55cc218a9794/src/components/LeftToolbar.tsx",
-    lineNumber: 87,
+    lineNumber: 88,
     columnNumber: 5
   }, this);
 }
