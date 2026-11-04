@@ -1,0 +1,1 @@
+[{"pgid":3190,"pid":3190,"label":"vite-watch","commandFingerprint":"node /app/workspace/dd8f6ca5-46fd-42ed-b5e6-55cc218a9794/node_modules/.bin/vite build --watch --emptyOutDir false --config /app/workspace/dd8f6ca5-46fd-42ed-b5e","startedAt":1793801237238},{"pgid":3297,"pid":3297,"label":"api-sidecar","commandFingerprint":"bun run server.tsx","startedAt":1793801240240}]
