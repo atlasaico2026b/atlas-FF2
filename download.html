@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>دانلود سورس کد — سامانه اطفاء حریق ATLAS</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', Tahoma, sans-serif;
+            background: linear-gradient(135deg, #0f172a, #1e293b);
+            color: #e2e8f0;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 16px;
+        }
+        .card {
+            background: #1e293b;
+            border: 1px solid #334155;
+            border-radius: 16px;
+            padding: 28px 24px;
+            max-width: 560px;
+            width: 100%;
+            text-align: center;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+        }
+        .icon { font-size: 56px; margin-bottom: 12px; }
+        h1 { font-size: 21px; margin-bottom: 8px; color: #f8fafc; }
+        p { color: #94a3b8; margin-bottom: 20px; line-height: 1.8; font-size: 14px; }
+        .size {
+            background: #334155;
+            padding: 8px 16px;
+            border-radius: 8px;
+            display: inline-block;
+            margin-bottom: 20px;
+            font-size: 13px;
+            color: #60a5fa;
+        }
+        .btn {
+            display: block;
+            background: linear-gradient(135deg, #3b82f6, #2563eb);
+            color: white;
+            text-decoration: none;
+            padding: 16px 32px;
+            border-radius: 12px;
+            font-size: 17px;
+            font-weight: 600;
+            transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(59,130,246,0.4);
+        }
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(59,130,246,0.6);
+        }
+        .info {
+            margin-top: 22px;
+            padding: 16px;
+            background: #0f172a;
+            border-radius: 8px;
+            font-size: 13px;
+            color: #94a3b8;
+            line-height: 2;
+            text-align: right;
+        }
+        .info strong { color: #e2e8f0; }
+        code {
+            background: #1e293b;
+            border: 1px solid #334155;
+            padding: 2px 7px;
+            border-radius: 5px;
+            color: #7dd3fc;
+            font-size: 12px;
+            direction: ltr;
+            display: inline-block;
+        }
+        .raw {
+            margin-top: 16px;
+            font-size: 12px;
+            color: #64748b;
+            word-break: break-all;
+            direction: ltr;
+            text-align: center;
+        }
+        .raw a { color: #60a5fa; }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <div class="icon">📦</div>
+        <h1>سورس کد سامانه اطفاء حریق ATLAS</h1>
+        <p>شامل فرانت‌اند React، بک‌اند Hono/Prisma، ۳۰ آیکون و محاسبات استاندارد NFPA</p>
+        <div class="size">📦 فایل ZIP — ۱۷.۷ مگابایت — ۱۶۰ فایل — نسخه ۳</div>
+        <a href="atlas-fire-system-src-v14.zip" download class="btn">⬇️ دانلود فایل ZIP</a>
+
+        <div class="info">
+            <strong>پیش‌نیاز:</strong> Node.js ۲۰+ و <strong>Bun</strong> (بک‌اند روی Bun.serve اجرا می‌شود)<br>
+            نصب Bun: <code>powershell -c "irm bun.sh/install.ps1 | iex"</code> (ویندوز)<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>curl -fsSL https://bun.sh/install | bash</code> (مک/لینوکس)<br>
+            <br>
+            <strong>راه‌اندازی در VS Code:</strong><br>
+            ۱. فایل ZIP را دانلود و استخراج کنید (<strong>راست‌کلیک ← Extract All</strong>)<br>
+            ۲. پوشه <code>atlas-fire-system</code> را در VS Code باز کنید<br>
+            ۳. نصب پکیج‌ها: <code>npm install</code><br>
+            ۴. اجرا: <code>npm run dev:full</code><br>
+            ۵. مرورگر: <code>http://localhost:3000</code><br>
+            <br>
+            <strong>ورود مدیر:</strong> نام کاربری <code>admin</code> — رمز <code>ATLAS2026</code><br>
+            <br>
+            <strong>تازه در نسخه ۳:</strong> رفع باگ زوم (اسکرول موس و کشوی زوم)، حذف چک ولو/فشار سنج/فلومیتر، قوانین انحصار تجهیزات هر گره، و مسیر درست دیتابیس محلی<br><br><strong>رفع اشکال:</strong> اگر صفحه سفید شد یا خطای
+            «Element type is invalid» یا «Invalid hook call» دیدید، نصب ناقص/قدیمی است —
+            <code>node_modules</code> و <code>package-lock.json</code> را پاک کنید و
+            <code>npm install</code> را دوباره بزنید.
+            جزئیات کامل در <code>README.md</code> داخل بسته.
+        </div>
+
+        <div class="raw">
+            لینک مستقیم: <a href="atlas-fire-system-src-v14.zip">atlas-fire-system-src-v14.zip</a>
+        </div>
+    </div>
+</body>
+</html>
